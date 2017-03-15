@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://phpplay.github.io/2017/03/14/test/</loc>
+    
+    <lastmod>2017-03-14T06:12:42.729Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://phpplay.github.io/tags/index.html</loc>
     
     <lastmod>2017-03-14T04:59:48.028Z</lastmod>
