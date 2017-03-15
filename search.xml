@@ -26,7 +26,7 @@
 				}
 			});
 		</script>
-<video width="480" height="320" controls><br><source src="http://static.hdslb.com/miniloader.swf?aid=8203123&page=1"><br></video>
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=9057376&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">
 ]]></content>
       
         
@@ -63,7 +63,7 @@
     <entry>
       <title><![CDATA[Hello World]]></title>
       <url>http://phpplay.github.io/2017/03/14/hello-world/</url>
-      <content type="html"><![CDATA[<pre><code>时隔一年，又开始写blog了，这次能坚持多久？
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><pre><code>时隔一年，又开始写blog了，这次能坚持多久？
 </code></pre>]]></content>
       
         
