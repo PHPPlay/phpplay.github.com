@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="网络安全,python," />
 
 
 
@@ -89,16 +89,19 @@
 
 
 
-<meta name="description" content="时隔一年，又开始写blog了，这次能坚持多久？">
+<meta name="description" content="学习(1)一直想搞一个批量扫描工具，最近试着写一下扫描struts2，所以打算自己写一个于是就有了这个demo
+我的demo这次不再用urllib2了，因为301，302自动跳转问题有些蛋疼 -、-，所以用了requests，第一次用，我语法都没学完，直接写到昨晚2点多，因为自定义404的问题实在是不好判断，所以就找了些资料，思路大概也就是访问一个根本不可能存在的路径，和原扫描路径做比较，如果相">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://phpplay.github.io/2017/03/14/hello-world/index.html">
+<meta property="og:title" content="目录扫描脚本">
+<meta property="og:url" content="http://phpplay.github.io/2017/03/16/nscan/index.html">
 <meta property="og:site_name" content="masker">
-<meta property="og:description" content="时隔一年，又开始写blog了，这次能坚持多久？">
-<meta property="og:updated_time" content="2017-03-14T04:53:17.294Z">
+<meta property="og:description" content="学习(1)一直想搞一个批量扫描工具，最近试着写一下扫描struts2，所以打算自己写一个于是就有了这个demo
+我的demo这次不再用urllib2了，因为301，302自动跳转问题有些蛋疼 -、-，所以用了requests，第一次用，我语法都没学完，直接写到昨晚2点多，因为自定义404的问题实在是不好判断，所以就找了些资料，思路大概也就是访问一个根本不可能存在的路径，和原扫描路径做比较，如果相">
+<meta property="og:updated_time" content="2017-03-16T02:06:44.862Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="时隔一年，又开始写blog了，这次能坚持多久？">
+<meta name="twitter:title" content="目录扫描脚本">
+<meta name="twitter:description" content="学习(1)一直想搞一个批量扫描工具，最近试着写一下扫描struts2，所以打算自己写一个于是就有了这个demo
+我的demo这次不再用urllib2了，因为301，302自动跳转问题有些蛋疼 -、-，所以用了requests，第一次用，我语法都没学完，直接写到昨晚2点多，因为自定义404的问题实在是不好判断，所以就找了些资料，思路大概也就是访问一个根本不可能存在的路径，和原扫描路径做比较，如果相">
 
 
 
@@ -126,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://phpplay.github.io/2017/03/14/hello-world/"/>
+  <link rel="canonical" href="http://phpplay.github.io/2017/03/16/nscan/"/>
 
 
 
 
 
-  <title> Hello World | masker </title>
+  <title> 目录扫描脚本 | masker </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/03/14/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/03/16/nscan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="masker">
@@ -272,7 +275,7 @@
             
             
               
-                Hello World
+                目录扫描脚本
               
             
           </h1>
@@ -287,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-14T09:41:48+08:00">
-                2017-03-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T09:53:35+08:00">
+                2017-03-16
               </time>
             
 
@@ -323,7 +326,14 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><pre><code>时隔一年，又开始写blog了，这次能坚持多久？
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="学习-1"><a href="#学习-1" class="headerlink" title="学习(1)"></a>学习(1)</h2><pre><code>一直想搞一个批量扫描工具，最近试着写一下扫描struts2，所以打算自己写一个于是就有了这个demo
+</code></pre><h3 id="我的demo"><a href="#我的demo" class="headerlink" title="我的demo"></a>我的demo</h3><pre><code>这次不再用urllib2了，因为301，302自动跳转问题有些蛋疼 -、-，所以用了requests，第一次用，我语法都没学完，直接写到昨晚2点多，因为自定义404的问题实在是不好判断，所以就找了些资料，思路大概也就是访问一个根本不可能存在的路径，和原扫描路径做比较，如果相似度大于百分之80，就直接舍弃。
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> r.status_code == <span class="number">200</span> <span class="keyword">and</span> l1 != l2 <span class="keyword">and</span> <span class="string">'type'</span> <span class="keyword">in</span> r.text <span class="keyword">and</span>  difflib.SequenceMatcher(<span class="keyword">None</span>, r2.text,r.text).ratio() &lt; <span class="number">0.8</span></div></pre></td></tr></table></figure>
+<pre><code>我使用了多个判断条件，首先是状态码，文件长度，type in 是为了判断是否是html，最后的那个是判断文本相似度。
+完整的模块代码如下：
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">action_scan</span><span class="params">(url)</span>:</span></div><div class="line">    dirs = [<span class="string">"index.action"</span>,<span class="string">"home.action"</span>,<span class="string">"login.action"</span>,<span class="string">"main.action"</span>,<span class="string">"homepage.action"</span>]</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">	furl = <span class="string">'http://'</span> + url + <span class="string">':8080/'</span> + dirs[i]</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">	    r = requests.get(furl,allow_redirects = <span class="keyword">False</span>,timeout=<span class="number">3</span>)</div><div class="line">            l1 = len(r.text)</div><div class="line">            r2 = requests.get(furl+<span class="string">'233323332333'</span>,allow_redirects = <span class="keyword">False</span>,timeout=<span class="number">3</span>)</div><div class="line">            l2 = len(r2.text)</div><div class="line">            <span class="keyword">if</span> r.status_code == <span class="number">200</span> <span class="keyword">and</span> l1 != l2 <span class="keyword">and</span> <span class="string">'type'</span> <span class="keyword">in</span> r.text <span class="keyword">and</span>  difflib.SequenceMatcher(<span class="keyword">None</span>, r2.text,r.text).ratio() &lt; <span class="number">0.8</span>:</div><div class="line">               </div><div class="line">                <span class="keyword">print</span> furl + <span class="string">'       is ok'</span></div><div class="line">                file_object = open(<span class="string">'ok.txt'</span>, <span class="string">'a'</span>)</div><div class="line">       	        file_object.write(furl + <span class="string">'\n'</span>)</div><div class="line">	        file_object.close()</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">print</span> furl + <span class="string">'                                       is not ok'</span></div><div class="line"></div><div class="line">            </div><div class="line">        <span class="keyword">except</span> :</div><div class="line">            <span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<h3 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h3><pre><code>其实如果我只扫struts2的话，只要有一个可以判断的指纹就可以了，搞得这么复杂，我也是醉了，不过这个demo稍微改一下就可以变成一个web目录扫描了，至少它扫描struts2准确性很高了
+接下来打算学习线程，顺便把语法补上来，否则根基太渣，容易垮掉啊。
 </code></pre>
       
     </div>
@@ -351,6 +361,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/网络安全/" rel="tag"># 网络安全</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
 
       
         
@@ -360,15 +378,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/03/14/test/" rel="next" title="python判断网络文件类型测试脚本">
+                <i class="fa fa-chevron-left"></i> python判断网络文件类型测试脚本
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/14/whoami/" rel="prev" title="关于struts2-045漏洞的脚本编写">
-                关于struts2-045漏洞的脚本编写 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -415,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/tx.jpg"
@@ -476,6 +503,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习-1"><span class="nav-number">1.</span> <span class="nav-text">学习(1)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的demo"><span class="nav-number">1.1.</span> <span class="nav-text">我的demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反思"><span class="nav-number">1.2.</span> <span class="nav-text">反思</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

