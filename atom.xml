@@ -63,12 +63,13 @@
     <link href="http://phpplay.github.io/2017/03/20/docker/"/>
     <id>http://phpplay.github.io/2017/03/20/docker/</id>
     <published>2017-03-20T08:27:53.000Z</published>
-    <updated>2017-03-21T03:05:37.980Z</updated>
+    <updated>2017-03-21T03:23:33.445Z</updated>
     
     <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><p>&#160; &#160; &#160; &#160;醉了，今天研究了一天的docker，我就不该让它运行在windows中，这是个错误啊，各种配置问题，各种解决。最后只汇聚成了一句精华<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dm   -s &quot;D:\docker list&quot;   create --engine-registry-mirror=https://docker.mirrors.ustc.edu.cn --virtualbox-hostonly-cidr &quot;192.168.233.1/24&quot; -d virtualbox  xxx</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;PS:老版本的docker真心不好用，其实原理就是简易的vbox么。</p>
 <h2 id="docker漏洞相关"><a href="#docker漏洞相关" class="headerlink" title="docker漏洞相关"></a>docker漏洞相关</h2><p>现在的docker虚拟化才兴起，所以漏洞还是有一些的，找到一个相关的<a href="http://www.cnblogs.com/hanyifeng/p/5526799.html" target="_blank" rel="external">漏洞</a>，虚拟化这一片的洞也不少啊，还有就是git上有一些，比如CVE-2016-5195,都是用来逃逸的POC</p>
 <p>代码git上就有<a href="https://github.com/gebl/dirtycow-docker-vdso" target="_blank" rel="external">code</a>.</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>&#160; &#160; &#160; &#160;它最大的有点就是方便，各种环境的开解部署，真心快。</p>
 ]]></content>
     
     <summary type="html">
