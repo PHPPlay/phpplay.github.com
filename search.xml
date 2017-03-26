@@ -4,6 +4,23 @@
   
     
     <entry>
+      <title><![CDATA[dnslist]]></title>
+      <url>http://phpplay.github.io/2017/03/26/dnslist/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="dnslist"><a href="#dnslist" class="headerlink" title="dnslist"></a>dnslist</h2><p>&#160; &#160; &#160; &#160;前两天写了一个从dnslist采集二级域名的脚本，现在做个记录，这几天没有写，感觉好怪异的感觉，也许是外出了一次吧</p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># encoding:utf-8</span></div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">subdm_get</span><span class="params">(domain)</span>:</span></div><div class="line">    </div><div class="line">    list3 = domain.split(<span class="string">"."</span>)  </div><div class="line">    sss = <span class="string">''</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, list3.__len__())[::<span class="number">-1</span>]:</div><div class="line">        sss = sss +list3[i]+<span class="string">'/'</span>    </div><div class="line">    url = <span class="string">'http://dnslist.net/'</span> + sss</div><div class="line">    r = requests.get(url)</div><div class="line">    html = r.text</div><div class="line">    a = re.findall(<span class="string">r"&lt;a.*?href=.*?&lt;\/a&gt;"</span>,html)</div><div class="line">    l = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> a:</div><div class="line">        url2 = i[i.find(<span class="string">'&gt;'</span>)+<span class="number">1</span>:<span class="number">-4</span>]  </div><div class="line">        l.append(url2)</div><div class="line">    <span class="keyword">return</span> l</div><div class="line">  </div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">if</span> len(sys.argv) == <span class="number">2</span>:</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> subdm_get(sys.argv[<span class="number">1</span>]):</div><div class="line">            <span class="keyword">print</span> i</div><div class="line">        sys.exit()</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">print</span> (<span class="string">"usage: %s domain"</span> % sys.argv[<span class="number">0</span>])</div><div class="line">        sys.exit(<span class="number">-1</span>)</div></pre></td></tr></table></figure>]]></content>
+      
+        
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+            <tag> python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[docker笔记]]></title>
       <url>http://phpplay.github.io/2017/03/21/dockerbj/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h1 id="docker笔记"><a href="#docker笔记" class="headerlink" title="docker笔记"></a>docker笔记</h1><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p><a href="https://docs.docker.com/toolbox/toolbox_install_windows/#step-2-install-docker-toolbox" target="_blank" rel="external">https://docs.docker.com/toolbox/toolbox_install_windows/#step-2-install-docker-toolbox</a></p>
