@@ -1,1 +1,2 @@
-<img src=x onerror=alert(1)>
+var a='2333'; 
+alert(a);
