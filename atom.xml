@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://phpplay.github.io/"/>
-  <updated>2017-03-30T04:34:13.982Z</updated>
+  <updated>2017-04-06T02:01:53.776Z</updated>
   <id>http://phpplay.github.io/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>csv</title>
+    <link href="http://phpplay.github.io/2017/04/05/csv-test/"/>
+    <id>http://phpplay.github.io/2017/04/05/csv-test/</id>
+    <published>2017-04-05T05:51:41.000Z</published>
+    <updated>2017-04-06T02:01:53.776Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="csv生成"><a href="#csv生成" class="headerlink" title="csv生成"></a>csv生成</h2><p>放假回来后感觉好累，好适合学习，看到别人写的工具可以生成csv，所以就把自己的脚本也添加上试试。还有就是改进了域名验证的过程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#save to csv    </div><div class="line">def csvs(name,dic):</div><div class="line">    domainfile = name + &apos;.csv&apos;</div><div class="line">    dcsv = open(domainfile, &apos;wb+&apos;)</div><div class="line">    write_d = csv.writer(dcsv)</div><div class="line">    title = &quot; &quot;.join([&apos;domain&apos;,&apos;ip&apos;]).decode(&quot;utf8&quot;).encode(&quot;gb2312&quot;).split() </div><div class="line">    write_d.writerow(title)</div><div class="line">    with dcsv as f:</div><div class="line">        for item in dic:</div><div class="line">            line = &apos;,&apos;.join(item) + &apos;\n&apos;</div><div class="line">            f.write(line.encode(&apos;utf-8&apos;))    </div><div class="line">    dcsv.close()</div></pre></td></tr></table></figure>
+<h2 id="domain2ip"><a href="#domain2ip" class="headerlink" title="domain2ip"></a>domain2ip</h2><p>写的很简单，就是用gethostbyname获取ip，速度很慢很慢，需要特别改进一下，也许dnspython</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#domain to ip</div><div class="line">def domain2ip(domain):</div><div class="line">    list2 = []</div><div class="line">    for i in domain:</div><div class="line">        try:</div><div class="line">            result = socket.gethostbyname(i)</div><div class="line">            #print result</div><div class="line">            list2.append(result)</div><div class="line">        except:</div><div class="line">            list2.append(&apos;&apos;)  </div><div class="line">            #print &apos;0.0.0.0&apos;</div><div class="line">    return list2</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>dns查询速度过慢，导致返回过慢，多线程感觉又太卡，socket.gethostbyname阻塞太严重了，所以打算使用别的库来试试，或者直接在其它网站上查询，还需要改进很多<br>自己的python还是渣到不行，没有系统学习过，就是差距</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;csv生成&quot;&gt;&lt;a href=&quot;#csv生成&quot; class=&quot;headerlink&quot; title=&quot;csv生成&quot;&gt;&lt;/a&gt;csv生成&lt;/h2&gt;&lt;p&gt;放假回来后感觉好
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://phpplay.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>xss常用payload</title>
