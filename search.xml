@@ -4,6 +4,49 @@
   
     
     <entry>
+      <title><![CDATA[php fuzz]]></title>
+      <url>http://phpplay.github.io/2017/06/15/php-fuzz/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="php-mysql-fuzz"><a href="#php-mysql-fuzz" class="headerlink" title="php  mysql fuzz"></a>php  mysql fuzz</h2><p>上周因为一个注入，让我有研究了一下fuzz方面的东西，所以从网上找了几个脚本，另外写了个批量检测的php脚本，现在记录下来。</p>
+<p>第一个是对mysql的fuzz，主要测试的是chr函数的255个特殊字符放到mysql语句中会不会起到作用，这个脚本是网上找的，原文来自于wooyun zone，可惜了zone里一堆好东西现在都不见了啊。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    error_reporting(0);</div><div class="line">    /* 连接选择数据库 */</div><div class="line">    $link = mysql_connect(&quot;localhost&quot;, &quot;root&quot;, &quot;root123&quot;)</div><div class="line">        or die(&quot;Could not connect : &quot; . mysql_error());</div><div class="line">    print &quot;Connected successfully&lt;br/&gt;&lt;br /&gt;&quot;;</div><div class="line">    mysql_select_db(&quot;mysql&quot;) or die(&quot;Could not select database&quot;);</div><div class="line"></div><div class="line">    /* 执行 SQL 查询 */</div><div class="line">  for($i=0;$i&lt;255;$i++)&#123;</div><div class="line">    $fuzz=chr($i);</div><div class="line">    $query = &quot;&#123;$fuzz&#125;SELECT&#123;$fuzz&#125;&#123;$fuzz&#125;password&#123;$fuzz&#125;from&#123;$fuzz&#125; mysql.user &#123;$fuzz&#125;limit &#123;$fuzz&#125;1&quot;;</div><div class="line">    //$query = &quot;SELECT 1 from mysql.user --&#123;$fuzz&#125;xxxxx&quot;;</div><div class="line">	$result = mysql_query($query);</div><div class="line">	$array = mysql_fetch_array($result,MYSQL_ASSOC);</div><div class="line"></div><div class="line">    /* 在 HTML 中打印结果 */</div><div class="line">    if(mysql_error()==&apos;&apos;)&#123;</div><div class="line">		echo urlencode(chr($i)).&quot; ---- &quot;.chr($i).&quot;&lt;br/&gt;&quot;;</div><div class="line">		echo $query.&quot;&lt;br /&gt;&quot;;</div><div class="line">		print_r($array);</div><div class="line">		echo &quot;&lt;br /&gt;&lt;br /&gt;&quot;;</div><div class="line">		mysql_free_result($result);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">  &#125;</div><div class="line">    /* 释放资源 */</div><div class="line">    mysql_free_result($result);</div><div class="line"></div><div class="line">    /* 断开连接 */</div><div class="line">    mysql_close($link);</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="php-sql-injection"><a href="#php-sql-injection" class="headerlink" title="php sql injection"></a>php sql injection</h2><p>第二个脚本是用来练注入的，需要配置下数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    $conn = mysql_connect(&quot;localhost&quot;, &quot;root&quot;, &quot;root123&quot;);</div><div class="line">    if(!$conn)</div><div class="line">    &#123; </div><div class="line">    echo &quot;数据库联接错误&quot;;</div><div class="line">    exit;</div><div class="line">     &#125;</div><div class="line">if (!mysql_select_db(&quot;test&quot;)) </div><div class="line">&#123;</div><div class="line">    echo &quot;选择数据库出错&quot; . mysql_error();</div><div class="line">    exit;</div><div class="line">&#125;</div><div class="line">$tempID=$_GET[&apos;id&apos;];</div><div class="line">if($tempID&lt;=0 || !isset($tempID)) $tempID=1;</div><div class="line">$sql = &quot;SELECT * FROM php_product WHERE id =$tempID&quot;;</div><div class="line">echo $sql.&apos;&lt;br&gt;&apos;;</div><div class="line">$result = mysql_query($sql);</div><div class="line">if (!$result) &#123;</div><div class="line">echo &quot;查询出错&quot; . mysql_error();</div><div class="line">exit;</div><div class="line">&#125;</div><div class="line">if (mysql_num_rows($result) == 0) &#123;</div><div class="line">echo &quot;没有查询结果&quot;;</div><div class="line">exit;</div><div class="line">&#125;</div><div class="line">while ($row = mysql_fetch_assoc($result)) &#123;</div><div class="line">    echo &apos;ID:&apos;.$row[&quot;id&quot;].&apos;&lt;br&gt;&apos;;</div><div class="line">    echo &apos;name:&apos;.$row[&quot;name&quot;].&apos;&lt;br&gt;&apos;;</div><div class="line">    echo &apos;price:&apos;.$row[&quot;price&quot;].&apos;&lt;br&gt;&apos;;</div><div class="line">echo &apos;image:&apos;.$row[&quot;img&quot;].&apos;&lt;br&gt;&apos;;</div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="php-burp-geturl"><a href="#php-burp-geturl" class="headerlink" title="php burp geturl"></a>php burp geturl</h2><p>第三个脚本是自己写的，用来配合burp检测网站状态，也可用来批量执行exp等等，关键看自己怎么用了，很简单的东西，而且file_get_contents是有先天不足的，建议替换为其他函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?php </div><div class="line">/*</div><div class="line">$url = &quot;http://&quot;.$_GET[&quot;u&quot;]; </div><div class="line">*/</div><div class="line">$url = $_GET[&quot;u&quot;]; </div><div class="line">$ctx = stream_context_create(array( </div><div class="line">&apos;http&apos; =&gt; array(&apos;timeout&apos; =&gt; 50, </div><div class="line">&apos;proxy&apos; =&gt; &apos;tcp://127.0.0.1:8080&apos;, </div><div class="line">&apos;request_fulluri&apos; =&gt; True,) </div><div class="line">) </div><div class="line">); </div><div class="line">$result = file_get_contents($url, false, $ctx); </div><div class="line">echo $result; </div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>这只是初步的脚本，网上有更多好东西，度娘谷哥可以帮你。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> web安全 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[自定义shellcode]]></title>
+      <url>http://phpplay.github.io/2017/05/24/%E8%87%AA%E5%AE%9A%E4%B9%89shellcode/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>一直在找shellcode的生成工具，想过要自己写，但是又没个思路，直到今天才找到了自己想要的东西，没想到的是08年就有人写出来了。不过也对，当时全是研究底层的大神，和现在的学习环境都不一样。<br>怀念当年绿色兵团那时候的学习氛围，想起当年我也是拿手机上邪八，绿色的人啊。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">schelper.exe -i nc.exe -en Exe -db -o s.bin</div><div class="line"></div><div class="line">测试  ： schelper.exe -t -i s.bin</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">schelper.exe -i nc.exe -d 1 -o s.txt</div><div class="line"></div><div class="line"></div><div class="line">成功生成shellcode</div></pre></td></tr></table></figure>
+<p>下一步我要尝试学习delphi了，学习，学习，加油！</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+            <tag> shellcode </tag>
+            
+            <tag> C </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[遥不可及的你]]></title>
       <url>http://phpplay.github.io/2017/05/22/ni/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><p>遥不可及的你</p>
@@ -235,9 +278,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         
@@ -331,9 +374,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         
@@ -367,9 +410,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         
@@ -386,9 +429,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         

@@ -1,0 +1,682 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="web安全," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="masker" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="php  mysql fuzz上周因为一个注入，让我有研究了一下fuzz方面的东西，所以从网上找了几个脚本，另外写了个批量检测的php脚本，现在记录下来。
+第一个是对mysql的fuzz，主要测试的是chr函数的255个特殊字符放到mysql语句中会不会起到作用，这个脚本是网上找的，原文来自于wooyun zone，可惜了zone里一堆好东西现在都不见了啊。1234567891011121314">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php fuzz">
+<meta property="og:url" content="http://phpplay.github.io/2017/06/15/php-fuzz/index.html">
+<meta property="og:site_name" content="masker">
+<meta property="og:description" content="php  mysql fuzz上周因为一个注入，让我有研究了一下fuzz方面的东西，所以从网上找了几个脚本，另外写了个批量检测的php脚本，现在记录下来。
+第一个是对mysql的fuzz，主要测试的是chr函数的255个特殊字符放到mysql语句中会不会起到作用，这个脚本是网上找的，原文来自于wooyun zone，可惜了zone里一堆好东西现在都不见了啊。1234567891011121314">
+<meta property="og:updated_time" content="2017-06-15T07:03:02.299Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php fuzz">
+<meta name="twitter:description" content="php  mysql fuzz上周因为一个注入，让我有研究了一下fuzz方面的东西，所以从网上找了几个脚本，另外写了个批量检测的php脚本，现在记录下来。
+第一个是对mysql的fuzz，主要测试的是chr函数的255个特殊字符放到mysql语句中会不会起到作用，这个脚本是网上找的，原文来自于wooyun zone，可惜了zone里一堆好东西现在都不见了啊。1234567891011121314">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://phpplay.github.io/2017/06/15/php-fuzz/"/>
+
+
+
+
+
+  <title> php fuzz | masker </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">masker</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/06/15/php-fuzz/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="masker">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="masker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                php fuzz
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-15T14:07:57+08:00">
+                2017-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="php-mysql-fuzz"><a href="#php-mysql-fuzz" class="headerlink" title="php  mysql fuzz"></a>php  mysql fuzz</h2><p>上周因为一个注入，让我有研究了一下fuzz方面的东西，所以从网上找了几个脚本，另外写了个批量检测的php脚本，现在记录下来。</p>
+<p>第一个是对mysql的fuzz，主要测试的是chr函数的255个特殊字符放到mysql语句中会不会起到作用，这个脚本是网上找的，原文来自于wooyun zone，可惜了zone里一堆好东西现在都不见了啊。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    error_reporting(0);</div><div class="line">    /* 连接选择数据库 */</div><div class="line">    $link = mysql_connect(&quot;localhost&quot;, &quot;root&quot;, &quot;root123&quot;)</div><div class="line">        or die(&quot;Could not connect : &quot; . mysql_error());</div><div class="line">    print &quot;Connected successfully&lt;br/&gt;&lt;br /&gt;&quot;;</div><div class="line">    mysql_select_db(&quot;mysql&quot;) or die(&quot;Could not select database&quot;);</div><div class="line"></div><div class="line">    /* 执行 SQL 查询 */</div><div class="line">  for($i=0;$i&lt;255;$i++)&#123;</div><div class="line">    $fuzz=chr($i);</div><div class="line">    $query = &quot;&#123;$fuzz&#125;SELECT&#123;$fuzz&#125;&#123;$fuzz&#125;password&#123;$fuzz&#125;from&#123;$fuzz&#125; mysql.user &#123;$fuzz&#125;limit &#123;$fuzz&#125;1&quot;;</div><div class="line">    //$query = &quot;SELECT 1 from mysql.user --&#123;$fuzz&#125;xxxxx&quot;;</div><div class="line">	$result = mysql_query($query);</div><div class="line">	$array = mysql_fetch_array($result,MYSQL_ASSOC);</div><div class="line"></div><div class="line">    /* 在 HTML 中打印结果 */</div><div class="line">    if(mysql_error()==&apos;&apos;)&#123;</div><div class="line">		echo urlencode(chr($i)).&quot; ---- &quot;.chr($i).&quot;&lt;br/&gt;&quot;;</div><div class="line">		echo $query.&quot;&lt;br /&gt;&quot;;</div><div class="line">		print_r($array);</div><div class="line">		echo &quot;&lt;br /&gt;&lt;br /&gt;&quot;;</div><div class="line">		mysql_free_result($result);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">  &#125;</div><div class="line">    /* 释放资源 */</div><div class="line">    mysql_free_result($result);</div><div class="line"></div><div class="line">    /* 断开连接 */</div><div class="line">    mysql_close($link);</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="php-sql-injection"><a href="#php-sql-injection" class="headerlink" title="php sql injection"></a>php sql injection</h2><p>第二个脚本是用来练注入的，需要配置下数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    $conn = mysql_connect(&quot;localhost&quot;, &quot;root&quot;, &quot;root123&quot;);</div><div class="line">    if(!$conn)</div><div class="line">    &#123; </div><div class="line">    echo &quot;数据库联接错误&quot;;</div><div class="line">    exit;</div><div class="line">     &#125;</div><div class="line">if (!mysql_select_db(&quot;test&quot;)) </div><div class="line">&#123;</div><div class="line">    echo &quot;选择数据库出错&quot; . mysql_error();</div><div class="line">    exit;</div><div class="line">&#125;</div><div class="line">$tempID=$_GET[&apos;id&apos;];</div><div class="line">if($tempID&lt;=0 || !isset($tempID)) $tempID=1;</div><div class="line">$sql = &quot;SELECT * FROM php_product WHERE id =$tempID&quot;;</div><div class="line">echo $sql.&apos;&lt;br&gt;&apos;;</div><div class="line">$result = mysql_query($sql);</div><div class="line">if (!$result) &#123;</div><div class="line">echo &quot;查询出错&quot; . mysql_error();</div><div class="line">exit;</div><div class="line">&#125;</div><div class="line">if (mysql_num_rows($result) == 0) &#123;</div><div class="line">echo &quot;没有查询结果&quot;;</div><div class="line">exit;</div><div class="line">&#125;</div><div class="line">while ($row = mysql_fetch_assoc($result)) &#123;</div><div class="line">    echo &apos;ID:&apos;.$row[&quot;id&quot;].&apos;&lt;br&gt;&apos;;</div><div class="line">    echo &apos;name:&apos;.$row[&quot;name&quot;].&apos;&lt;br&gt;&apos;;</div><div class="line">    echo &apos;price:&apos;.$row[&quot;price&quot;].&apos;&lt;br&gt;&apos;;</div><div class="line">echo &apos;image:&apos;.$row[&quot;img&quot;].&apos;&lt;br&gt;&apos;;</div><div class="line">&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="php-burp-geturl"><a href="#php-burp-geturl" class="headerlink" title="php burp geturl"></a>php burp geturl</h2><p>第三个脚本是自己写的，用来配合burp检测网站状态，也可用来批量执行exp等等，关键看自己怎么用了，很简单的东西，而且file_get_contents是有先天不足的，建议替换为其他函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?php </div><div class="line">/*</div><div class="line">$url = &quot;http://&quot;.$_GET[&quot;u&quot;]; </div><div class="line">*/</div><div class="line">$url = $_GET[&quot;u&quot;]; </div><div class="line">$ctx = stream_context_create(array( </div><div class="line">&apos;http&apos; =&gt; array(&apos;timeout&apos; =&gt; 50, </div><div class="line">&apos;proxy&apos; =&gt; &apos;tcp://127.0.0.1:8080&apos;, </div><div class="line">&apos;request_fulluri&apos; =&gt; True,) </div><div class="line">) </div><div class="line">); </div><div class="line">$result = file_get_contents($url, false, $ctx); </div><div class="line">echo $result; </div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>这只是初步的脚本，网上有更多好东西，度娘谷哥可以帮你。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web安全/" rel="tag"># web安全</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/24/自定义shellcode/" rel="next" title="自定义shellcode">
+                <i class="fa fa-chevron-left"></i> 自定义shellcode
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/tx.jpg"
+               alt="masker" />
+          <p class="site-author-name" itemprop="name">masker</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#php-mysql-fuzz"><span class="nav-number">1.</span> <span class="nav-text">php  mysql fuzz</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php-sql-injection"><span class="nav-number">2.</span> <span class="nav-text">php sql injection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php-burp-geturl"><span class="nav-number">3.</span> <span class="nav-text">php burp geturl</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">masker</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
