@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="tools,网络安全," />
 
 
 
@@ -89,16 +89,16 @@
 
 
 
-<meta name="description" content="时隔一年，又开始写blog了，这次能坚持多久？">
+<meta name="description" content="wireshark过滤规则123456789101112131415161718常用的 直接在过滤规则输入  http  tcp  udp tcp.port == 80 || udp.port == 80ip.addr== 192.168.70.159http没有tcp.port == 80 || udp.port == 80效果好这些规则显示过滤器里面都有ip.后面有很多的选项可以用 ||">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://phpplay.github.io/2017/03/14/hello-world/index.html">
+<meta property="og:title" content="简单的Wireshark抓包">
+<meta property="og:url" content="http://phpplay.github.io/2017/07/20/Wireshark/index.html">
 <meta property="og:site_name" content="masker">
-<meta property="og:description" content="时隔一年，又开始写blog了，这次能坚持多久？">
-<meta property="og:updated_time" content="2017-03-14T04:53:17.294Z">
+<meta property="og:description" content="wireshark过滤规则123456789101112131415161718常用的 直接在过滤规则输入  http  tcp  udp tcp.port == 80 || udp.port == 80ip.addr== 192.168.70.159http没有tcp.port == 80 || udp.port == 80效果好这些规则显示过滤器里面都有ip.后面有很多的选项可以用 ||">
+<meta property="og:updated_time" content="2017-07-19T17:08:50.189Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="时隔一年，又开始写blog了，这次能坚持多久？">
+<meta name="twitter:title" content="简单的Wireshark抓包">
+<meta name="twitter:description" content="wireshark过滤规则123456789101112131415161718常用的 直接在过滤规则输入  http  tcp  udp tcp.port == 80 || udp.port == 80ip.addr== 192.168.70.159http没有tcp.port == 80 || udp.port == 80效果好这些规则显示过滤器里面都有ip.后面有很多的选项可以用 ||">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://phpplay.github.io/2017/03/14/hello-world/"/>
+  <link rel="canonical" href="http://phpplay.github.io/2017/07/20/Wireshark/"/>
 
 
 
 
 
-  <title> Hello World | masker </title>
+  <title> 简单的Wireshark抓包 | masker </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +251,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/03/14/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/07/20/Wireshark/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="masker">
@@ -272,7 +272,7 @@
             
             
               
-                Hello World
+                简单的Wireshark抓包
               
             
           </h1>
@@ -287,8 +287,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-14T09:41:48+08:00">
-                2017-03-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T01:06:01+08:00">
+                2017-07-20
               </time>
             
 
@@ -323,8 +323,13 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><pre><code>时隔一年，又开始写blog了，这次能坚持多久？
-</code></pre>
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="wireshark过滤规则"><a href="#wireshark过滤规则" class="headerlink" title="wireshark过滤规则"></a>wireshark过滤规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">常用的 直接在过滤规则输入  </div><div class="line"></div><div class="line">http  </div><div class="line">tcp  </div><div class="line">udp </div><div class="line">tcp.port == 80 || udp.port == 80</div><div class="line">ip.addr== 192.168.70.159</div><div class="line"></div><div class="line">http没有tcp.port == 80 || udp.port == 80效果好</div><div class="line">这些规则显示过滤器里面都有</div><div class="line"></div><div class="line">ip.后面有很多的选项</div><div class="line">可以用 ||  来代表or</div><div class="line">&amp;&amp; 为 and  等等都很简单</div><div class="line">最简单的方法 就是找到一个想要的包，右键  把它设置为规则</div><div class="line">复杂一点的话，就去看帮助，学习过滤正则就好了</div><div class="line"></div><div class="line">PS：最好用中文版，看着省事</div></pre></td></tr></table></figure>
+<h2 id="如何得到与burp一样的包结果"><a href="#如何得到与burp一样的包结果" class="headerlink" title="如何得到与burp一样的包结果"></a>如何得到与burp一样的包结果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">抓到包后，右键选项里的复制选项&gt;字节，就可以得到和burp一样的包结果了</div><div class="line">随意找了一个包</div><div class="line">结果如下</div><div class="line">Xil5EX@fKF&#123;:ePPdqP</div><div class="line">GET /pushserver3/client?ClientVer=50800000001&amp;GUID=PC9586697ac15763679&amp;app=ydrive&amp;cl=desktop&amp;client_ver=50800000001&amp;cto=600000&amp;device_id=PC9586697ac15763679&amp;device_name=WHOAMI&amp;device_type=PC&amp;did=PC9586697ac15763679&amp;keyfrom=pc&amp;lp=1500408903365&amp;os=Windows&amp;os_ver=Windows&amp;pv=1&amp;subvendor=&amp;vendor=website&amp;vendornew=website&amp;ver=0 HTTP/1.1</div><div class="line">Accept: */*</div><div class="line">USER-ID: ccfuc2017@163.com</div><div class="line">User-Agent: Ydrive client</div><div class="line">Host: notify3.note.youdao.com</div><div class="line">Connection: Keep-Alive</div><div class="line">Cache-Control: no-cache</div><div class="line">Cookie: OUTFOX_SEARCH_USER_ID=1951253004@123.123.62.41; YNOTE_FORCE=true; YNOTE_SESS=v2|Y4KBDH-XfWTFh4wzOfYWRJ4kMQBhLOm0J4OMPLn4py0Q4nMOM64qL0Uf6MkfnfTFR64kfgBP4OMRTLPLkMRHwyR6KhfPFnfzGR; YNOTE_LOGIN=1||1500466436384; JSESSIONID=aaaEP4FnqI5rUhLR5z30v</div><div class="line"></div><div class="line">前面会有几个乱的字符，自己手工删掉就可以了</div></pre></td></tr></table></figure>
+<h2 id="对包内容进行过滤，搜索"><a href="#对包内容进行过滤，搜索" class="headerlink" title="对包内容进行过滤，搜索"></a>对包内容进行过滤，搜索</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">可以使用规则  比如下面就是只抓get的包</div><div class="line">tcp.port == 80 || udp.port == 80 &amp;&amp; http.request.method==&quot;GET&quot;</div><div class="line"></div><div class="line">也可以ctrl+f   直接找string    只要关键词选的好正确，很快就ok</div></pre></td></tr></table></figure>
+<p>更多学习资料：<a href="http://jingyan.baidu.com/article/7f41ececede744593c095c79.html" target="_blank" rel="external">http://jingyan.baidu.com/article/7f41ececede744593c095c79.html</a></p>
+<p><a href="https://www.baidu.com/s?wd=wireshark%20%E6%95%99%E7%A8%8B" target="_blank" rel="external">https://www.baidu.com/s?wd=wireshark%20%E6%95%99%E7%A8%8B</a></p>
+<p>```</p>
+
       
     </div>
 
@@ -351,6 +356,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/tools/" rel="tag"># tools</a>
+          
+            <a href="/tags/网络安全/" rel="tag"># 网络安全</a>
+          
+        </div>
+      
 
       
         
@@ -360,15 +373,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/23/python623/" rel="next" title="python623">
+                <i class="fa fa-chevron-left"></i> python623
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/14/whoami/" rel="prev" title="关于struts2-045漏洞的脚本编写">
-                关于struts2-045漏洞的脚本编写 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -415,8 +428,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/tx.jpg"
@@ -476,6 +498,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#wireshark过滤规则"><span class="nav-number">1.</span> <span class="nav-text">wireshark过滤规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何得到与burp一样的包结果"><span class="nav-number">2.</span> <span class="nav-text">如何得到与burp一样的包结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对包内容进行过滤，搜索"><span class="nav-number">3.</span> <span class="nav-text">对包内容进行过滤，搜索</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

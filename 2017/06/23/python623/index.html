@@ -1,0 +1,678 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="masker" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="格式输出与列表123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python623">
+<meta property="og:url" content="http://phpplay.github.io/2017/06/23/python623/index.html">
+<meta property="og:site_name" content="masker">
+<meta property="og:description" content="格式输出与列表123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100">
+<meta property="og:updated_time" content="2017-06-23T01:13:23.527Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python623">
+<meta name="twitter:description" content="格式输出与列表123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://phpplay.github.io/2017/06/23/python623/"/>
+
+
+
+
+
+  <title> python623 | masker </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">masker</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://phpplay.github.io/2017/06/23/python623/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="masker">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="masker">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                python623
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T09:08:57+08:00">
+                2017-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="格式输出与列表"><a href="#格式输出与列表" class="headerlink" title="格式输出与列表"></a>格式输出与列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div></pre></td><td class="code"><pre><div class="line">格式输出</div><div class="line">%d	整数</div><div class="line">%f	浮点数</div><div class="line">%s	字符串</div><div class="line">%x	十六进制整数</div><div class="line"></div><div class="line">print &apos;whoami %d&apos; %(1)  #这个是整数1</div><div class="line">whoami 1</div><div class="line"></div><div class="line">print &apos;whoami %s&apos; %(&apos;1&apos;)  #这个是字符1</div><div class="line">whoami 1</div><div class="line"></div><div class="line">print &apos;whoami %f&apos; % 1.00  这个是浮点1</div><div class="line">whoami 1.000000</div><div class="line"></div><div class="line">print &apos;whoami %x&apos; %(1)    这个是十六进制整数1</div><div class="line">whoami 1</div><div class="line"></div><div class="line"></div><div class="line">list   列表</div><div class="line">定义并循环输出列表</div><div class="line">&gt;&gt;&gt; whoami = [&apos;diyi&apos;,&apos;dier&apos;,&apos;laosan&apos;]</div><div class="line">&gt;&gt;&gt; whoami</div><div class="line">&gt;&gt;&gt; for i in whoami:</div><div class="line">...     print i</div><div class="line">...</div><div class="line">diyi</div><div class="line">dier</div><div class="line">laosan</div><div class="line"></div><div class="line"></div><div class="line">输出定位元素</div><div class="line">&gt;&gt;&gt; whoami[0]</div><div class="line">&apos;diyi&apos;</div><div class="line">&gt;&gt;&gt; whoami[2]</div><div class="line">&apos;laosan&apos;</div><div class="line">&gt;&gt;&gt; whoami[1]</div><div class="line">&apos;dier&apos;</div><div class="line">&gt;&gt;&gt; whoami[3]</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">IndexError: list index out of range</div><div class="line"></div><div class="line">&gt;&gt;&gt; len(whoami)</div><div class="line">3</div><div class="line">&gt;&gt;&gt; whoami[len(whoami)-1]</div><div class="line">&apos;laosan&apos;</div><div class="line"></div><div class="line">添加元素</div><div class="line">&gt;&gt;&gt; whoami.append(&apos;xiaosi&apos;)</div><div class="line">&gt;&gt;&gt; whoami</div><div class="line">[&apos;diyi&apos;, &apos;dier&apos;, &apos;laosan&apos;, &apos;xiaosi&apos;]</div><div class="line">插入元素</div><div class="line">&gt;&gt;&gt; whoami.insert(2,&apos;whoami&apos;)</div><div class="line">&gt;&gt;&gt; whoami</div><div class="line">[&apos;diyi&apos;, &apos;dier&apos;, &apos;whoami&apos;, &apos;laosan&apos;, &apos;xiaosi&apos;]</div><div class="line">修改元素</div><div class="line">&gt;&gt;&gt; whoami[2] = &apos;gai&apos;</div><div class="line">&gt;&gt;&gt; whoami</div><div class="line">[&apos;diyi&apos;, &apos;dier&apos;, &apos;gai&apos;, &apos;laosan&apos;, &apos;xiaosi&apos;]</div><div class="line">删除末尾元素</div><div class="line">&gt;&gt;&gt; whoami.pop()</div><div class="line">&apos;test&apos;</div><div class="line">&gt;&gt;&gt; whoami</div><div class="line">[&apos;diyi&apos;, &apos;dier&apos;, &apos;gai&apos;, &apos;laosan&apos;, &apos;xiaosi&apos;]</div><div class="line">删除指定元素</div><div class="line">&gt;&gt;&gt; whoami.pop(2)</div><div class="line">&apos;gai&apos;</div><div class="line">&gt;&gt;&gt; whoami</div><div class="line">[&apos;diyi&apos;, &apos;dier&apos;, &apos;laosan&apos;, &apos;xiaosi&apos;]</div><div class="line">嵌套取值</div><div class="line">&gt;&gt;&gt; cn = whoami</div><div class="line">&gt;&gt;&gt; mingzi = [cn,&apos;en&apos;]</div><div class="line">&gt;&gt;&gt; mingzi[0][2]</div><div class="line">&apos;laosan&apos;</div><div class="line"></div><div class="line">元组 tuple  元组中的值是不可变的  无法增删改</div><div class="line">&gt;&gt;&gt; yuanzu = (&apos;1&apos;,&apos;2&apos;,&apos;3&apos;)</div><div class="line">&gt;&gt;&gt; yuanzu</div><div class="line">(&apos;1&apos;, &apos;2&apos;, &apos;3&apos;)</div><div class="line">&gt;&gt;&gt; for i in yuanzu:</div><div class="line">...     print i</div><div class="line">...</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">&gt;&gt;&gt; yuanzu[0]</div><div class="line">&apos;1&apos;</div><div class="line">&gt;&gt;&gt; yuanzu[0] = &apos;2333&apos;</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">TypeError: &apos;tuple&apos; object does not support item assignment</div><div class="line">单一元组的时候必须加,来消除歧义，否则会误解为数学计算中的小括号</div><div class="line">&gt;&gt;&gt; t=(1)</div><div class="line">&gt;&gt;&gt; t</div><div class="line">1</div><div class="line">&gt;&gt;&gt; t=(1,)</div><div class="line">&gt;&gt;&gt; t</div><div class="line">(1,)</div><div class="line">&gt;&gt;&gt; type(t)</div><div class="line">&lt;type &apos;tuple&apos;&gt;</div><div class="line">&gt;&gt;&gt; t =(1)</div><div class="line">&gt;&gt;&gt; type(t)</div><div class="line">&lt;type &apos;int&apos;&gt;</div><div class="line"></div><div class="line">tuple中有变量的时候，指向不变，但是有列表时就可以变化</div><div class="line">变量不变</div><div class="line">&gt;&gt;&gt; z = &apos;a&apos;</div><div class="line">&gt;&gt;&gt; t = (&apos;1&apos;,&apos;2&apos;,z)</div><div class="line">&gt;&gt;&gt; t</div><div class="line">(&apos;1&apos;, &apos;2&apos;, &apos;a&apos;)</div><div class="line">&gt;&gt;&gt; z= &apos;b&apos;</div><div class="line">&gt;&gt;&gt; t</div><div class="line">(&apos;1&apos;, &apos;2&apos;, &apos;a&apos;)</div><div class="line">列表变</div><div class="line">&gt;&gt;&gt; t = (&apos;1&apos;,&apos;2&apos;,[&apos;1&apos;,&apos;2&apos;])</div><div class="line">&gt;&gt;&gt; t</div><div class="line">(&apos;1&apos;, &apos;2&apos;, [&apos;1&apos;, &apos;2&apos;])</div><div class="line">&gt;&gt;&gt; t[2][1] = &apos;3&apos;</div><div class="line">&gt;&gt;&gt; t</div><div class="line">(&apos;1&apos;, &apos;2&apos;, [&apos;1&apos;, &apos;3&apos;])</div><div class="line"></div><div class="line">格式转换</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">------------------------------</div><div class="line">找到一个好东西</div><div class="line"></div><div class="line"></div><div class="line">int(x [,base ])         将x转换为一个整数    </div><div class="line">long(x [,base ])        将x转换为一个长整数    </div><div class="line">float(x )               将x转换到一个浮点数    </div><div class="line">complex(real [,imag ])  创建一个复数    </div><div class="line">str(x )                 将对象 x 转换为字符串    </div><div class="line">repr(x )                将对象 x 转换为表达式字符串    </div><div class="line">eval(str )              用来计算在字符串中的有效Python表达式,并返回一个对象    </div><div class="line">tuple(s )               将序列 s 转换为一个元组    </div><div class="line">list(s )                将序列 s 转换为一个列表    </div><div class="line">chr(x )                 将一个整数转换为一个字符    </div><div class="line">unichr(x )              将一个整数转换为Unicode字符    </div><div class="line">ord(x )                 将一个字符转换为它的整数值    </div><div class="line">hex(x )                 将一个整数转换为一个十六进制字符串    </div><div class="line">oct(x )                 将一个整数转换为一个八进制字符串</div></pre></td></tr></table></figure>
+<h2 id="python-的-条件判断与循环"><a href="#python-的-条件判断与循环" class="headerlink" title="python 的 条件判断与循环"></a>python 的 条件判断与循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">与其它程序没有什么不同</div><div class="line">#-*- coding:utf-8 -*-</div><div class="line">a = int(raw_input(&apos;a=&apos;))</div><div class="line">#print type(a)</div><div class="line">if a &gt; 0:</div><div class="line">    print &apos;世界爆炸&apos;</div><div class="line">elif  a == 0:</div><div class="line">    print  &apos;世界战争&apos;</div><div class="line">else:</div><div class="line">    print &apos;世界和平&apos;</div><div class="line"></div><div class="line">for循环	</div><div class="line">for i in list:</div><div class="line">    print i</div><div class="line"></div><div class="line">最经典的累加</div><div class="line">sum = 0</div><div class="line">for x in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:</div><div class="line">    sum = sum + x</div><div class="line">print sum</div><div class="line"></div><div class="line">5050累加</div><div class="line">sum = 0</div><div class="line">for x in range(101):</div><div class="line">    sum = sum + x</div><div class="line">print sum</div><div class="line"></div><div class="line"></div><div class="line">奇数和的计算   while   的使用</div><div class="line">sum = 0</div><div class="line">n = 99</div><div class="line">while n &gt; 0:</div><div class="line">    sum = sum + n</div><div class="line">    n = n - 2</div><div class="line">print sum</div></pre></td></tr></table></figure>
+<h2 id="字典-dict"><a href="#字典-dict" class="headerlink" title="字典  dict"></a>字典  dict</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div></pre></td><td class="code"><pre><div class="line">一个key只能对应一个value</div><div class="line"></div><div class="line">dict的key必须是不可变对象。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">dict有以下几个特点：</div><div class="line"></div><div class="line">查找和插入的速度极快，不会随着key的增加而增加；</div><div class="line">需要占用大量的内存，内存浪费多。</div><div class="line"></div><div class="line">而list相反：</div><div class="line"></div><div class="line">查找和插入的时间随着元素的增加而增加；</div><div class="line">占用空间小，浪费内存很少。</div><div class="line"></div><div class="line">所以，dict是用空间来换取时间的一种方法。</div><div class="line"></div><div class="line"></div><div class="line">set</div><div class="line"></div><div class="line">字典中key是可以相同的，set的key却是不同的，但set不储存value</div><div class="line"></div><div class="line">set和dict类似，也是一组key的集合，但不存储value。</div><div class="line"></div><div class="line">由于key不能重复，所以，在set中，没有重复的key。</div><div class="line"></div><div class="line">重复元素会被过滤掉</div><div class="line"></div><div class="line">&gt;&gt;&gt; s = set([1,1,1,1,1,1,1,1,22,2,2,2,2,2,3])</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([1, 2, 3, 22])</div><div class="line">&gt;&gt;&gt;</div><div class="line"></div><div class="line">通过add(key)方法可以添加元素到set中，可以重复添加，但不会有效果：</div><div class="line"></div><div class="line">s.add(4)</div><div class="line"></div><div class="line">&gt;&gt;&gt; s.add(5)</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([1, 2, 3, 5, 22])</div><div class="line">set其实是无序的</div><div class="line"></div><div class="line">&gt;&gt;&gt; s.add(&apos;234234&apos;)</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([1, 2, 3, 5, 22, &apos;234234&apos;])</div><div class="line">&gt;&gt;&gt;</div><div class="line">&gt;&gt;&gt; s.add(0)                   添加0</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([0, 1, 2, 3, 5, 22, &apos;234234&apos;])</div><div class="line">&gt;&gt;&gt; s.add(&apos;&apos;)                 添加空字符串</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([0, 1, 2, 3, 5, &apos;&apos;, 22, &apos;234234&apos;])</div><div class="line">&gt;&gt;&gt;</div><div class="line">&gt;&gt;&gt; s.add()                   添加空值是不可以的</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">TypeError: add() takes exactly one argument (0 given)</div><div class="line"></div><div class="line"></div><div class="line">s.remove(1)</div><div class="line"></div><div class="line"></div><div class="line">&gt;&gt;&gt; s.remove(1)                     删除元素，但是remove的值必须存在   </div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([0, 2, 3, 5, &apos;&apos;, 22, &apos;234234&apos;])</div><div class="line"></div><div class="line"></div><div class="line">使用   discard    删除的话，.discard(obj)中的obj如果是set中的元素,就删除,如果不是,就什么也不做</div><div class="line"></div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([&apos;a&apos;, 2, 3, 5, &apos;&apos;, 7, 22, &apos;234234&apos;, 989])</div><div class="line">&gt;&gt;&gt; s.discard(234234234324)</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([&apos;a&apos;, 2, 3, 5, &apos;&apos;, 7, 22, &apos;234234&apos;, 989])</div><div class="line">&gt;&gt;&gt; s.discard(22)</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([&apos;a&apos;, 2, 3, 5, &apos;&apos;, 7, &apos;234234&apos;, 989])</div><div class="line"></div><div class="line"></div><div class="line">set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集、并集等操作：</div><div class="line"></div><div class="line"></div><div class="line">set([0, 2, 3, 5, &apos;&apos;, 22, &apos;234234&apos;])</div><div class="line">&gt;&gt;&gt; s.add(7)</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([0, 2, 3, 5, &apos;&apos;, 7, 22, &apos;234234&apos;])</div><div class="line">&gt;&gt;&gt; s.add(989)</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([0, 2, 3, 5, &apos;&apos;, 7, 22, &apos;234234&apos;, 989])</div><div class="line">&gt;&gt;&gt; s.add(&apos;a&apos;)</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([0, &apos;a&apos;, 2, 3, 5, &apos;&apos;, 7, 22, &apos;234234&apos;, 989])</div><div class="line">&gt;&gt;&gt;</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([0, &apos;a&apos;, 2, 3, 5, &apos;&apos;, 7, 22, &apos;234234&apos;, 989])</div><div class="line">&gt;&gt;&gt; b =set([2333,2,3,5,7])</div><div class="line">&gt;&gt;&gt; s&amp;b</div><div class="line">set([2, 3, 5, 7])</div><div class="line">&gt;&gt;&gt; s |b</div><div class="line">set([0, &apos;a&apos;, 2, 3, 5, &apos;&apos;, 7, 2333, 22, &apos;234234&apos;, 989])</div><div class="line"></div><div class="line">&gt;&gt;&gt; s1 = set(&quot;qiwsir&quot;)</div><div class="line">&gt;&gt;&gt; s1                              自动拆分字符</div><div class="line">set([&apos;q&apos;, &apos;i&apos;, &apos;s&apos;, &apos;r&apos;, &apos;w&apos;])    </div><div class="line"></div><div class="line">set.pop()是从set中任意选一个元素,删除并将这个值返回.但是,不能指定删除某个元素.</div><div class="line"></div><div class="line">从另外一个set中合并过来元素 使用 set.update   update只能用于增加字符串  ，用于整数等类型就会报错</div><div class="line"></div><div class="line">&gt;&gt;&gt; s1.update(&apos;whoami&apos;)</div><div class="line">&gt;&gt;&gt; s1</div><div class="line">set([&apos;a&apos;, &apos;i&apos;, &apos;h&apos;, &apos;m&apos;, &apos;o&apos;, &apos;q&apos;, &apos;s&apos;, &apos;r&apos;, &apos;w&apos;])</div><div class="line"></div><div class="line">set  最常用的地方应该就是交并集合 ，比较，或者统计了</div><div class="line"></div><div class="line">set.clear(),清空</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/15/php-fuzz/" rel="next" title="php fuzz">
+                <i class="fa fa-chevron-left"></i> php fuzz
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/20/Wireshark/" rel="prev" title="简单的Wireshark抓包">
+                简单的Wireshark抓包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/tx.jpg"
+               alt="masker" />
+          <p class="site-author-name" itemprop="name">masker</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#格式输出与列表"><span class="nav-number">1.</span> <span class="nav-text">格式输出与列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-的-条件判断与循环"><span class="nav-number">2.</span> <span class="nav-text">python 的 条件判断与循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典-dict"><span class="nav-number">3.</span> <span class="nav-text">字典  dict</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">masker</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

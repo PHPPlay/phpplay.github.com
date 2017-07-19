@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://phpplay.github.io/2017/07/20/Wireshark/</loc>
+    
+    <lastmod>2017-07-19T17:08:50.189Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://phpplay.github.io/2017/06/23/python623/</loc>
+    
+    <lastmod>2017-06-23T01:13:23.527Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://phpplay.github.io/2017/06/15/php-fuzz/</loc>
     
     <lastmod>2017-06-15T07:03:02.299Z</lastmod>
