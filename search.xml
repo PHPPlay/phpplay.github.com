@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title><![CDATA[where is web path]]></title>
+      <url>http://phpplay.github.io/2017/10/16/where-is-web-path/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="where-is-web-path-from-wooyun-zone"><a href="#where-is-web-path-from-wooyun-zone" class="headerlink" title="where is web path (from wooyun zone)"></a>where is web path (from wooyun zone)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">find / -name &quot;*.php&quot;</div><div class="line">find . -name &quot;*.类型&quot; | xargs grep &quot;关键字&quot;</div><div class="line">find / -name nginx.conf</div><div class="line">find / -name httpd.conf</div><div class="line">find robots.txt</div><div class="line">locate robots.txt</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.bash_history</div><div class="line">httpd,nginx,tomcat,jboss的error_log</div><div class="line">/proc/self/cmdline</div><div class="line">/proc/self/maps</div><div class="line">web容器路径--&gt;配置文件</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">win: findstr /s /i /n /d:C:\ &quot;htmlString&quot; *.*</div><div class="line">linux: find / -name &quot;*.*&quot; | xargs grep &quot;htmlString&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /etc/nginx/conf/vhost/web.conf | grep root</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;-----------------------start---------------------&quot;;find /etc  -maxdepth 3 -name &quot;*&quot;  2&gt;&amp;1|xargs grep -s -i &apos;root /&apos;| grep -s -i &apos;nginx\|apache&apos;;echo &quot;-----------------------done----------------------&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">For I in (curl http://localhost |grep -oP ([a-Z]&#123;1-6&#125;)[\.js]));do for d in $(find / -name &quot;*.js&quot;);do grep $i  $d;done;done</div><div class="line">没实验，意思是打开首页匹配js文件。系统内搜索所有文件js文件，匹配js文件名</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">win:</div><div class="line">wmic datafile where &quot;filename=&apos;123&apos; and extension=&apos;avi&apos;&quot; get caption</div><div class="line"></div><div class="line">dir /s/a-d/b d:\*重复度较低的文件名（支持通配符）*</div><div class="line"></div><div class="line">where /r c: *.php</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">history | grep cd | grep -v grep | grep -E &apos;www|html|nginx|apache|php|lighttp|web&apos; -i</div><div class="line"></div><div class="line">history | grep -E &apos;cd|vi|ed|nano|et|mkdir|rm|find|ls|mv&apos; | grep -v grep | grep -E &apos;www|html|nginx|apache|php|lighttp|web&apos; -i</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1、netstat -anp | grep [port]   --&gt; PID</div><div class="line">2、ps -p [PID] -o cmd ww   --&gt; PID对应的启动命令（假设存在反向代理，则为bin目录）</div><div class="line">3、cd ../conf   --&gt; 寻找nginx.conf/httpd.conf</div><div class="line">4、通过反向代理ProxyPass/ProxyPassReverse找到对应的webapp端口号port2</div><div class="line">5、netstat -anp | grep [port2]   --&gt; PID2（web app的进程）</div><div class="line">6、ps -p [PID2] -o cmd ww   --&gt; PID2的“Catalina.base”</div><div class="line">7、cd 到“Catalina.base”   --&gt; server.xml</div><div class="line">8、从server.xml中找到appBase 和 docBase</div><div class="line">9、cd 到 $docBase/$appBase，即为当前web app路径。</div></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> web </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[简单的Wireshark抓包]]></title>
       <url>http://phpplay.github.io/2017/07/20/Wireshark/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="wireshark过滤规则"><a href="#wireshark过滤规则" class="headerlink" title="wireshark过滤规则"></a>wireshark过滤规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">常用的 直接在过滤规则输入  </div><div class="line"></div><div class="line">http  </div><div class="line">tcp  </div><div class="line">udp </div><div class="line">tcp.port == 80 || udp.port == 80</div><div class="line">ip.addr== 192.168.70.159</div><div class="line"></div><div class="line">http没有tcp.port == 80 || udp.port == 80效果好</div><div class="line">这些规则显示过滤器里面都有</div><div class="line"></div><div class="line">ip.后面有很多的选项</div><div class="line">可以用 ||  来代表or</div><div class="line">&amp;&amp; 为 and  等等都很简单</div><div class="line">最简单的方法 就是找到一个想要的包，右键  把它设置为规则</div><div class="line">复杂一点的话，就去看帮助，学习过滤正则就好了</div><div class="line"></div><div class="line">PS：最好用中文版，看着省事</div></pre></td></tr></table></figure>
@@ -17,9 +40,9 @@
         
         <tags>
             
-            <tag> tools </tag>
-            
             <tag> 网络安全 </tag>
+            
+            <tag> tools </tag>
             
         </tags>
         
@@ -316,9 +339,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         
@@ -412,9 +435,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         
@@ -448,9 +471,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         
@@ -467,9 +490,9 @@
         
         <tags>
             
-            <tag> 网络安全 </tag>
-            
             <tag> python </tag>
+            
+            <tag> 网络安全 </tag>
             
         </tags>
         

