@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+#all{
+	margin:auto;
+	margin-top:100px;
+	height:500px;
+	width:40%;
+}
+#chr_div{
+	text-align:center;
+	height:26px;
+	width:auto;
+}
+#chr,#ten,#hex,#eight,#url,#js1,#js2,#js3{
+	width:98%;
+}
+#ans{
+	margin-top:3px;
+	height:450px;
+	width:auto;
+	text-align:center;
+}
+</style>
+<script>
+function to(chr){
+	var ten = chr.charCodeAt(0);
+	var hex = ten.toString(16);
+	var eight = ten.toString(8);
+	
+	return {
+		"ten":ten,
+		"hex":hex,
+		"eight":eight
+	};
+}
+function toX(){
+
+	var ch = document.getElementById("chr").value;
+	var t = document.getElementById("ten");
+	var h = document.getElementById("hex");
+	var e = document.getElementById("eight");
+	var u = document.getElementById("url");
+	var j1 = document.getElementById("js1");
+	var j2 = document.getElementById("js2");
+	var j3 = document.getElementById("js3");
+	
+	if(ch.length<=0){
+		t.style.display = "none";
+		h.style.display = "none";
+		e.style.display = "none";
+		u.style.display = "none";
+		j1.style.display = "none";
+		j2.style.display = "none";
+		j3.style.display = "none";
+		return ;
+	}
+	
+	var ten="",hex="",eight="",url="",js1="",js2="",js3="";
+	for(var i=0;i<ch.length;i++){
+		var tmp = ch[i];
+		var data = to(tmp);
+		ten += data.ten+' ';
+		hex += '0x'+data.hex;
+		eight += data.eight+' ';
+		url += '%'+data.hex;
+		js1 += '\\u00'+data.hex;
+		js2 += '\\x'+data.hex;
+		js3 += '\\'+data.eight;
+	}
+	t.value = '十进制：'+ten;
+	t.style.display = "";
+	
+	h.value = '十六进制：'+hex;
+	h.style.display = "";
+	
+	e.value = '八进制：'+eight;
+	e.style.display = "";
+
+	u.value = 'url编码：'+url;
+	u.style.display = "";
+	
+	j1.value = 'js编码1：'+js1;
+	j1.style.display = "";
+	
+	j2.value = 'js编码2：'+js2;
+	j2.style.display = "";
+	
+	j3.value = 'js编码3：'+js3;
+	j3.style.display = "";
+}
+</script>
+</head>
+<body style="text-align:center">
+
+<div id="all">
+	<h1 style="margin-top:40px;">编码转换</h1>
+	<div id="chr_div">
+		<input type="text" id="chr" onkeyup="toX()">
+	</div>
+	<div id="ans">
+		<input id="ten" type="text" style="display:none" readonly><br>
+		<input id="hex" type="text" style="display:none" readonly><br>
+		<input id="eight" type="text" style="display:none" readonly><br>
+		<input id="url" type="text" style="display:none" readonly><br>
+		<input id="js1" type="text" style="display:none" readonly>
+		<input id="js2" type="text" style="display:none" readonly>
+		<input id="js3" type="text" style="display:none" readonly>
+	</div>
+</div>
+</body>
+</html>
