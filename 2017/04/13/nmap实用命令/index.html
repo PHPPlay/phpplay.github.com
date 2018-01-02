@@ -90,21 +90,24 @@
 
 
 <meta name="description" content="nmap实用命令自己总结了几条nmap的实用命令，主要是用来格式化输出，感觉不错，所以记录一下几个参数123-sS  隐蔽扫描(半开syn)-sN  不管是否存在直接扫描-sI 完全隐藏。以一个跳板主机&amp;#123;无流量&amp;#125;扫描另一台主机
+最常用1nmap -v -sT -sV -Pn
 快速扫描1nmap -F 192.168.0.101
-syn快速扫描指定端口  格式化输出1234nmap -p80 -PS80 -oG - 10.1">
+syn快速扫描指定端口  格式化输出1234nm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nmap实用命令">
 <meta property="og:url" content="http://phpplay.github.io/2017/04/13/nmap实用命令/index.html">
 <meta property="og:site_name" content="masker">
 <meta property="og:description" content="nmap实用命令自己总结了几条nmap的实用命令，主要是用来格式化输出，感觉不错，所以记录一下几个参数123-sS  隐蔽扫描(半开syn)-sN  不管是否存在直接扫描-sI 完全隐藏。以一个跳板主机&amp;#123;无流量&amp;#125;扫描另一台主机
+最常用1nmap -v -sT -sV -Pn
 快速扫描1nmap -F 192.168.0.101
-syn快速扫描指定端口  格式化输出1234nmap -p80 -PS80 -oG - 10.1">
-<meta property="og:updated_time" content="2017-04-13T08:46:16.854Z">
+syn快速扫描指定端口  格式化输出1234nm">
+<meta property="og:updated_time" content="2017-11-22T03:11:29.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nmap实用命令">
 <meta name="twitter:description" content="nmap实用命令自己总结了几条nmap的实用命令，主要是用来格式化输出，感觉不错，所以记录一下几个参数123-sS  隐蔽扫描(半开syn)-sN  不管是否存在直接扫描-sI 完全隐藏。以一个跳板主机&amp;#123;无流量&amp;#125;扫描另一台主机
+最常用1nmap -v -sT -sV -Pn
 快速扫描1nmap -F 192.168.0.101
-syn快速扫描指定端口  格式化输出1234nmap -p80 -PS80 -oG - 10.1">
+syn快速扫描指定端口  格式化输出1234nm">
 
 
 
@@ -340,6 +343,7 @@ syn快速扫描指定端口  格式化输出1234nmap -p80 -PS80 -oG - 10.1">
 
       
         <script src="/assets/js/APlayer.min.js"> </script><h2 id="nmap实用命令"><a href="#nmap实用命令" class="headerlink" title="nmap实用命令"></a>nmap实用命令</h2><p>自己总结了几条nmap的实用命令，主要是用来格式化输出，感觉不错，所以记录一下<br>几个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-sS  隐蔽扫描(半开syn)</div><div class="line">-sN  不管是否存在直接扫描</div><div class="line">-sI 完全隐藏。以一个跳板主机&#123;无流量&#125;扫描另一台主机</div></pre></td></tr></table></figure></p>
+<p>最常用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nmap -v -sT -sV -Pn</div></pre></td></tr></table></figure></p>
 <p>快速扫描<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nmap -F 192.168.0.101</div></pre></td></tr></table></figure></p>
 <p>syn快速扫描指定端口  格式化输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">nmap -p80 -PS80 -oG - 10.193.179.0/24 | awk &apos;/open/&#123;print $2&#125;&apos;</div><div class="line">10.193.179.9</div><div class="line">10.193.179.17</div><div class="line">10.193.179.29</div></pre></td></tr></table></figure></p>
 <p>syn快速扫描指定端口  格式化输出带域名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nmap -p80 -PS80 -oG - 10.1.1.0/24 | awk &apos;/open/&#123;print $2 &quot; &quot; $3&#125;&apos;</div><div class="line"></div><div class="line">10.1.1.72 (userA.corp.foocompany.biz)</div><div class="line">10.1.1.73 (userB.corp.foocompany.biz)</div><div class="line">10.1.1.75 (userC.corp.foocompany.biz)</div></pre></td></tr></table></figure></p>
@@ -555,7 +559,7 @@ syn快速扫描指定端口  格式化输出1234nmap -p80 -PS80 -oG - 10.1">
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
