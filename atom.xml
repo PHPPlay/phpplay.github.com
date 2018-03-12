@@ -87,9 +87,9 @@
     </summary>
     
     
-      <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
       <category term="tools" scheme="http://phpplay.github.io/tags/tools/"/>
+    
+      <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
@@ -468,9 +468,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://phpplay.github.io/tags/python/"/>
-    
       <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="python" scheme="http://phpplay.github.io/tags/python/"/>
     
   </entry>
   
@@ -588,9 +588,9 @@
     </summary>
     
     
-      <category term="python" scheme="http://phpplay.github.io/tags/python/"/>
-    
       <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="python" scheme="http://phpplay.github.io/tags/python/"/>
     
   </entry>
   
