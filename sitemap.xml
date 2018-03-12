@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://phpplay.github.io/2018/03/12/softlist/</loc>
+    
+    <lastmod>2018-03-12T07:21:34.054Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://phpplay.github.io/2017/03/30/xss/</loc>
     
     <lastmod>2017-12-26T16:06:31.068Z</lastmod>
