@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://phpplay.github.io/"/>
-  <updated>2018-03-12T07:21:34.054Z</updated>
+  <updated>2018-03-19T09:51:45.198Z</updated>
   <id>http://phpplay.github.io/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>txt to video</title>
+    <link href="http://phpplay.github.io/2018/03/19/txt-to-video/"/>
+    <id>http://phpplay.github.io/2018/03/19/txt-to-video/</id>
+    <published>2018-03-19T09:46:37.000Z</published>
+    <updated>2018-03-19T09:51:45.198Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="powershell-code"><a href="#powershell-code" class="headerlink" title="powershell code"></a>powershell code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$Sentence = &quot;Who are you&quot;</div><div class="line"> (new-object -com SAPI.SpVoice).speak(&quot;$Sentence&quot;)</div></pre></td></tr></table></figure>
+<h2 id="c-code"><a href="#c-code" class="headerlink" title="c# code"></a>c# code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">using SpeechLib;</div><div class="line">using System.Windows.Forms;</div><div class="line"></div><div class="line">namespace WindowsFormsApplication1</div><div class="line">&#123;    public partial class Form1 : Form</div><div class="line">    &#123;</div><div class="line">        public Form1()</div><div class="line">        &#123;</div><div class="line">            InitializeComponent();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        private void button1_Click(object sender, EventArgs e)</div><div class="line">        &#123;</div><div class="line">            SpVoice voice = new SpVoice();</div><div class="line">            voice.Speak(textBox1.Text);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;powershell-code&quot;&gt;&lt;a href=&quot;#powershell-code&quot; class=&quot;headerlink&quot; title=&quot;powershell c
+    
+    </summary>
+    
+    
+      <category term="c#" scheme="http://phpplay.github.io/tags/c/"/>
+    
+  </entry>
   
   <entry>
     <title>softlist</title>
@@ -561,36 +582,6 @@
     
     
       <category term="hexo" scheme="http://phpplay.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>目录扫描脚本</title>
-    <link href="http://phpplay.github.io/2017/03/16/nscan/"/>
-    <id>http://phpplay.github.io/2017/03/16/nscan/</id>
-    <published>2017-03-16T01:53:35.000Z</published>
-    <updated>2017-03-16T02:41:54.387Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><p>&#160; &#160; &#160; &#160;一直想搞一个批量扫描工具，最近试着写一下扫描struts2，所以打算自己写一个于是就有了这个demo。   </p>
-<h3 id="我的demo"><a href="#我的demo" class="headerlink" title="我的demo"></a>我的demo</h3><p>&#160; &#160; &#160; &#160;这次不再用urllib2了，因为301，302自动跳转问题有些蛋疼 -、-，所以用了requests，第一次用，我语法都没学完，直接写到昨晚2点多，因为自定义404的问题实在是不好判断，所以就找了些资料，思路大概也就是访问一个根本不可能存在的路径，和原扫描路径做比较，如果相似度大于百分之80，就直接舍弃。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> r.status_code == <span class="number">200</span> <span class="keyword">and</span> l1 != l2 <span class="keyword">and</span> <span class="string">'type'</span> <span class="keyword">in</span> r.text <span class="keyword">and</span>  difflib.SequenceMatcher(<span class="keyword">None</span>, r2.text,r.text).ratio() &lt; <span class="number">0.8</span></div></pre></td></tr></table></figure>
-<pre><code>我使用了多个判断条件，首先是状态码，文件长度，type in 是为了判断是否是html，最后的那个是判断文本相似度。  
-完整的模块代码如下：  
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">action_scan</span><span class="params">(url)</span>:</span></div><div class="line">    dirs = [<span class="string">"index.action"</span>,<span class="string">"home.action"</span>,<span class="string">"login.action"</span>,<span class="string">"main.action"</span>,<span class="string">"homepage.action"</span>]</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">	furl = <span class="string">'http://'</span> + url + <span class="string">':8080/'</span> + dirs[i]</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">	    r = requests.get(furl,allow_redirects = <span class="keyword">False</span>,timeout=<span class="number">3</span>)</div><div class="line">            l1 = len(r.text)</div><div class="line">            r2 = requests.get(furl+<span class="string">'233323332333'</span>,allow_redirects = <span class="keyword">False</span>,timeout=<span class="number">3</span>)</div><div class="line">            l2 = len(r2.text)</div><div class="line">            <span class="keyword">if</span> r.status_code == <span class="number">200</span> <span class="keyword">and</span> l1 != l2 <span class="keyword">and</span> <span class="string">'type'</span> <span class="keyword">in</span> r.text <span class="keyword">and</span>  difflib.SequenceMatcher(<span class="keyword">None</span>, r2.text,r.text).ratio() &lt; <span class="number">0.8</span>:</div><div class="line">               </div><div class="line">                <span class="keyword">print</span> furl + <span class="string">'       is ok'</span></div><div class="line">                file_object = open(<span class="string">'ok.txt'</span>, <span class="string">'a'</span>)</div><div class="line">       	        file_object.write(furl + <span class="string">'\n'</span>)</div><div class="line">	        file_object.close()</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">print</span> furl + <span class="string">'                                       is not ok'</span></div><div class="line"></div><div class="line">            </div><div class="line">        <span class="keyword">except</span> :</div><div class="line">            <span class="keyword">pass</span></div></pre></td></tr></table></figure>
-<h3 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h3><p>&#160; &#160; &#160; &#160;其实如果我只扫struts2的话，只要有一个可以判断的指纹就可以了，搞得这么复杂，我也是醉了，不过这个demo稍微改一下就可以变成一个web目录扫描了，至少它扫描struts2准确性很高了  </p>
-<p>&#160; &#160; &#160; &#160;接下来打算学习线程，顺便把语法补上来，否则根基太渣，容易垮掉啊。  </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;script src=&quot;/assets/js/APlayer.min.js&quot;&gt; &lt;/script&gt;&lt;h2 id=&quot;学习&quot;&gt;&lt;a href=&quot;#学习&quot; class=&quot;headerlink&quot; title=&quot;学习&quot;&gt;&lt;/a&gt;学习&lt;/h2&gt;&lt;p&gt;&amp;#160; &amp;#160; &amp;#160;
-    
-    </summary>
-    
-    
-      <category term="网络安全" scheme="http://phpplay.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="python" scheme="http://phpplay.github.io/tags/python/"/>
     
   </entry>
   

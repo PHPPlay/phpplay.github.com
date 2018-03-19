@@ -4,6 +4,21 @@
   
     
     <entry>
+      <title><![CDATA[txt to video]]></title>
+      <url>http://phpplay.github.io/2018/03/19/txt-to-video/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="powershell-code"><a href="#powershell-code" class="headerlink" title="powershell code"></a>powershell code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$Sentence = &quot;Who are you&quot;</div><div class="line"> (new-object -com SAPI.SpVoice).speak(&quot;$Sentence&quot;)</div></pre></td></tr></table></figure>
+<h2 id="c-code"><a href="#c-code" class="headerlink" title="c# code"></a>c# code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">using SpeechLib;</div><div class="line">using System.Windows.Forms;</div><div class="line"></div><div class="line">namespace WindowsFormsApplication1</div><div class="line">&#123;    public partial class Form1 : Form</div><div class="line">    &#123;</div><div class="line">        public Form1()</div><div class="line">        &#123;</div><div class="line">            InitializeComponent();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        private void button1_Click(object sender, EventArgs e)</div><div class="line">        &#123;</div><div class="line">            SpVoice voice = new SpVoice();</div><div class="line">            voice.Speak(textBox1.Text);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+      
+        
+        <tags>
+            
+            <tag> c# </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[softlist]]></title>
       <url>http://phpplay.github.io/2018/03/12/softlist/</url>
       <content type="html"><![CDATA[<script src="/assets/js/APlayer.min.js"> </script><h2 id="softlist"><a href="#softlist" class="headerlink" title="softlist"></a>softlist</h2><p>前段时间看到 @3gstudent 用来提取软件列表的<a href="https://github.com/3gstudent/ListInstalledPrograms" target="_blank" rel="external">powershell脚本</a>，于是就写了个c#版本的，bug不少，不过勉强够用，在x64上提取不全，过段时间再改进一下</p>
