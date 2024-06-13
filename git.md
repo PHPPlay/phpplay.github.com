@@ -26,6 +26,7 @@ https://github.com/Notselwyn/CVE-2024-1086                 linux新提权
 https://github.com/Meckazin/ChromeKatz                 抓chrome内存，针对二验
 https://github.com/rapiz1/rathole                 仿frp，免杀嘎嘎好
 https://github.com/peass-ng/PEASS-ng                 提权，大动作
+https://github.com/BC-SECURITY/Moriarty                 提权，c#,可bof，win10，win11提权漏洞查找
 ```
 
 ## 钓鱼
