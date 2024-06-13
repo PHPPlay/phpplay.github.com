@@ -47,4 +47,5 @@ https://github.com/mrd0x/BITB   钓鱼模仿页面
 ```
 https://github.com/mandiant/capa                 一个反病毒沙箱，pe分析工具
 https://gist.github.com/zimnyaa/21402f7be4e9f6e36b06e3e908c95678                 使用sliver-py检查实时信标URI、证书到期日期和重定向器
+https://github.com/Bw3ll/sharem                       shellcode分析工具
 ```
